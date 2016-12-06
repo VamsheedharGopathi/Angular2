@@ -1,0 +1,13 @@
+#menuComponent.navbar-inverse {
+    background-color: #276fad;
+    border-color: #66a3d8;
+}
+#menuComponent .active > a{
+	color: white;
+	background-color: #276fad;
+	
+}
+#menuComponent .open > a {
+	color: white;
+	background-color: #276fad;
+}
