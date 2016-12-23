@@ -9,7 +9,7 @@ import {FooterComponent} from "../Component/Footer/footer.component";
 @NgModule({
   imports:      [ BrowserModule,CommonModule,BodyModule],
   declarations: [ PageComponent,MenuComponent,FooterComponent,Components],
-  bootstrap:    [ PageComponent ]
+  bootstrap:    [ PageComponent]
 })
 
 export class AppModule { 
