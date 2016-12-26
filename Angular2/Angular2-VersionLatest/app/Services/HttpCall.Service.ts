@@ -1,5 +1,4 @@
 import {Http,Headers,Response,RequestOptions} from '@angular/http';
-//import {HTTP_PROVIDERS} from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
@@ -7,9 +6,9 @@ import { Observable } from 'rxjs/Rx';
 @Injectable()
 export class HttpCallService {
  constructor (private http: Http) {}
- httpMethodtype:string;
+ httpMethodtype:string="";
  result:any;
- Url:string;
+ Url:string="";
  param:any;
     CallHttpService(): Observable<any>{
         let people$;
@@ -18,7 +17,7 @@ export class HttpCallService {
                           .get(`${this.Url}/${this.param}`, {headers: this.getHeaders()})
                           .map(this.extractData);
           }
-          else{
+          else if(this.httpMethodtype=="post"){
             people$ =  this.http
                         .post(this.Url, this.param, this.getOptions())
                         .map(this.extractData)
