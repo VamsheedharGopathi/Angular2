@@ -16,7 +16,10 @@ export class DivTableComponent{
 
     testService()
     {
-       this.httpService.CallHttpService();
+        this.httpService.httpMethodtype="Get";
+        this.httpService.Url="call/hit";
+        this.httpService.param="hyjh";
+        this.httpService.CallHttpService();
     }
 
 }

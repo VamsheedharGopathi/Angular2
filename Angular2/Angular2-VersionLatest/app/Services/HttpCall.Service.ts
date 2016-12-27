@@ -1,6 +1,8 @@
 import {Http,Headers,Response,RequestOptions} from '@angular/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 
 @Injectable()
@@ -13,15 +15,10 @@ export class HttpCallService {
     CallHttpService(): Observable<any>{
         let people$;
           if (this.httpMethodtype.toLocaleLowerCase()=="get") {
-            people$ = this.http
-                          .get(`${this.Url}/${this.param}`, {headers: this.getHeaders()})
-                          .map(this.extractData);
+            people$ = this.getMethod();
           }
-          else if(this.httpMethodtype=="post"){
-            people$ =  this.http
-                        .post(this.Url, this.param, this.getOptions())
-                        .map(this.extractData)
-                        .catch(this.handleError);
+          else if(this.httpMethodtype.toLocaleLowerCase()=="post"){
+            people$ =  this.postMethod();
           }
         return people$;
     }
@@ -31,6 +28,17 @@ export class HttpCallService {
       return body.data || { };
     }
 
+    private getMethod(){
+      return this.http.get(this.Url+'/'+this.param, {headers: this.getHeaders()})
+                          .map(this.extractData)
+                          .catch(this.handleError);
+    }
+
+    private postMethod(){
+      return this.http.post(this.Url, this.param, this.getOptions())
+                        .map(this.extractData)
+                        .catch(this.handleError);
+    }
     private getHeaders(){
       return new Headers({ 'Content-Type': 'application/json' });
     }
