@@ -1,11 +1,28 @@
-<div class="row">
-    <div class="col-md-4">
-1
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <button class="btn btn-primary" (click)=GetQueueNames()>GetQueueNames</button>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+        </div>
     </div>
-     <div class="col-md-4">
-2
-    </div>
-     <div class="col-md-4">
-    <button (click)=testService()>Hit</button>
+    <br>
+    <div>
+        <div class="row divComponent">
+            <template ngFor let-item [ngForOf]="QueueData" let-i="index">
+                <div class="col-md-5 well">
+                    <h2><span class="label label-default"> {{item.Name}}</span></h2>
+                    <div>
+                        <button class="btn btn-primary" (click)="GetQueueDetails(item)">GetMessagesCount</button>
+                    </div>
+                    <div *ngIf="CountVisible">
+                        <h2><span class="label label-default">{{item.Details}}</span></h2> <button *ngIf="item.Details>0" (click)="ClearQueueMessages(item)">Clear</button>
+                    </div>
+                </div>
+            </template>
+        </div>
+
     </div>
 </div>

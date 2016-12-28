@@ -24,8 +24,8 @@ export class HttpCallService {
     }
 
     private extractData(res: Response) {
-      let body = res.json();
-      return body.data || { };
+      let body=res.json() || { };
+      return body;
     }
 
     private getMethod(){

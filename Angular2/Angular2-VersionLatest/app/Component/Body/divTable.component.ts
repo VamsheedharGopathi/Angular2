@@ -8,18 +8,43 @@ import {HttpCallService} from  "../../Services/HttpCall.Service";
 })
 
 export class DivTableComponent{
-
-    constructor(private httpService:HttpCallService)
+QueueData:any;
+CountVisible:boolean=false;
+//QueueDetails:any;
+error:any;
+    constructor(private httpService:HttpCallService){}
+    
+    GetQueueNames()
     {
+        this.httpService.httpMethodtype="Get";
+        this.httpService.Url="http://localhost:64049/api/Queue";
+        this.httpService.param="GetQueueNames";
+        this.httpService.CallHttpService().subscribe(
+                       queue => this.QueueData=queue,
+                       error =>  this.error = <any>error);
        
     }
 
-    testService()
+     GetQueueDetails(queue:any)
     {
         this.httpService.httpMethodtype="Get";
-        this.httpService.Url="call/hit";
-        this.httpService.param="hyjh";
-        this.httpService.CallHttpService();
+        this.httpService.Url="http://localhost:64049/api/Queue/GetQueueMessages";
+        this.httpService.param=queue.Name;
+        this.httpService.CallHttpService().subscribe(
+                       queueDetails => queue.Details = queueDetails.result,
+                       error =>  this.error = <any>error);
+       this.CountVisible=true;
+    }
+
+    ClearQueueMessages(queue:any)
+    {
+        this.httpService.httpMethodtype="Get";
+        this.httpService.Url="http://localhost:64049/api/Queue/ClearQueueMessages";
+        this.httpService.param=queue.Name;
+        this.httpService.CallHttpService().subscribe(
+                       queueDetails => queue.Details = queueDetails.result,
+                       error =>  this.error = <any>error);
+       
     }
 
 }
