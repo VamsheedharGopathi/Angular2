@@ -1,4 +1,4 @@
-#menuComponent.navbar-inverse {
+/*#menuComponent.navbar-inverse {
     background-color: #276fad;
     border-color: #66a3d8;
 }
@@ -10,7 +10,7 @@
 #menuComponent .open > a {
 	color: white;
 	background-color: #276fad;
-}
+}*/
 .divComponent h2{
           margin-top: 0px;
     }

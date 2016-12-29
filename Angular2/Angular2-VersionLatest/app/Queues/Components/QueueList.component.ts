@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {HttpCallService} from '../../Services/HttpCall.Service'
+import {HttpCallService} from '../../Services/HttpCall.Service';
 @Component({
     moduleId:module.id,
     selector:"QueueList",
