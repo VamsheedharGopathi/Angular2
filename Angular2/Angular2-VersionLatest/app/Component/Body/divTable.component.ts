@@ -3,8 +3,7 @@ import {HttpCallService} from  "../../Services/HttpCall.Service";
 @Component({
     moduleId:module.id,
     selector:"divTable-Component",
-    templateUrl:"/app/Templates/divTable_Component.html",
-    providers:[HttpCallService]
+    templateUrl:"/app/Templates/divTable_Component.html"
 })
 
 export class DivTableComponent{

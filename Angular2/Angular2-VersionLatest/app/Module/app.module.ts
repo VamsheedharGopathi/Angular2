@@ -6,9 +6,11 @@ import {MenuComponent} from "../Component/Heading/menu.component";
 import {BodyModule,Components } from './body.module';
 import {FooterComponent} from "../Component/Footer/footer.component";
 import { HttpModule } from '@angular/http';
+import {HttpCallService} from '../Services/HttpCall.Service'
 @NgModule({
   imports:      [ BrowserModule,CommonModule,BodyModule,HttpModule],
   declarations: [ PageComponent,MenuComponent,FooterComponent,Components],
+  providers:[HttpCallService],
   bootstrap:    [ PageComponent]
 })
 

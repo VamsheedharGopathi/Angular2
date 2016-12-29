@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
 })
 
 export class PageComponent { 
-  name = 'Angular';
+  name = 'ECH';
 }
