@@ -13,11 +13,11 @@ CountVisible:boolean=false;
 //QueueDetails:any;
 error:any;
     constructor(private httpService:HttpCallService){}
-    
+
     GetQueueNames()
     {
         this.httpService.httpMethodtype="Get";
-        this.httpService.Url="http://localhost:64049/api/Queue";
+        this.httpService.Url="http://localhost:64049/api/ECH/Queue";
         this.httpService.param="GetQueueNames";
         this.httpService.CallHttpService().subscribe(
                        queue => this.QueueData=queue,
@@ -28,7 +28,7 @@ error:any;
      GetQueueDetails(queue:any)
     {
         this.httpService.httpMethodtype="Get";
-        this.httpService.Url="http://localhost:64049/api/Queue/GetQueueMessages";
+        this.httpService.Url="http://localhost:64049/api/ECH/Queue/GetQueueMessages";
         this.httpService.param=queue.Name;
         this.httpService.CallHttpService().subscribe(
                        queueDetails => queue.Details = queueDetails.result,
@@ -39,7 +39,7 @@ error:any;
     ClearQueueMessages(queue:any)
     {
         this.httpService.httpMethodtype="Get";
-        this.httpService.Url="http://localhost:64049/api/Queue/ClearQueueMessages";
+        this.httpService.Url="http://localhost:64049/api/ECH/Queue/ClearQueueMessages";
         this.httpService.param=queue.Name;
         this.httpService.CallHttpService().subscribe(
                        queueDetails => queue.Details = queueDetails.result,
