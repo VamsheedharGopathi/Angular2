@@ -1,15 +1,13 @@
 import {NgModule} from "@angular/core";
 import { RouterModule, Routes }  from '@angular/router';
-
-const appRoutes: Routes = [
-  ///{ path: 'crisis-center', component: CrisisListComponent },
- // { path: 'heroes',        component: HeroListComponent },
-  { path: '',   redirectTo: '/heroes', pathMatch: 'full' },
-  //{ path: '**', component: PageNotFoundComponent }
+import {QueueListComponent} from "./Components/QueueList.component";
+const queueRoutes: Routes = [
+  { path: 'Queues',  component: QueueListComponent }//,
+ // { path: 'hero/:id', component: HeroDetailComponent }
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forChild(queueRoutes)
   ],
   exports: [
     RouterModule
