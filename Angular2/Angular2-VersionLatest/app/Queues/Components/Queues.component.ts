@@ -5,6 +5,6 @@ import {Component} from '@angular/core'
     selector:"Queue",
     templateUrl:"../Templates/Queues.html",
 })
-export class QueueComponent{
+export class QueuesComponent{
 
 }
