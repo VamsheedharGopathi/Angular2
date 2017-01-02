@@ -7,7 +7,7 @@ const queueRoutes: Routes = [
 ];
 @NgModule({
   imports: [
-    RouterModule.forChild(queueRoutes)
+    RouterModule.forRoot(queueRoutes)
   ],
   exports: [
     RouterModule

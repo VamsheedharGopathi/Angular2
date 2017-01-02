@@ -3,7 +3,7 @@ import { RouterModule, Routes }  from '@angular/router';
 
 const appRoutes: Routes = [
   //{ path: 'crisis-center', component: CrisisListComponent },
-  { path: '',   redirectTo: '/Queues', pathMatch: 'full' },
+   { path: 'Queues', loadChildren: 'app/Queues/Queues.module#QueueListComponent' },
   //{ path: '**', component: PageNotFoundComponent }
 ];
 

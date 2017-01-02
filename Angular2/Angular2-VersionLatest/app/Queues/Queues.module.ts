@@ -9,10 +9,8 @@ import {QueuesComponent} from './Components/Queues.component'
 @NgModule({
     imports:[ CommonModule,FormsModule,QueueRoutingModule,HttpModule],
     declarations:[QueueListComponent,QueuesComponent],
-    providers:[HttpCallService]//,
-   // bootstrap:[QueueListComponent]
+    providers:[HttpCallService]
 })
 
 export class QueueModule{
-
 }
