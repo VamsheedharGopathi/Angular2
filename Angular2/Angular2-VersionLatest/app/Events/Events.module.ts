@@ -4,10 +4,11 @@ import { CommonModule }   from '@angular/common';
 import { HttpModule } from '@angular/http';
 import {EventsRoutingModule} from './Events.RouterConfig';
 import {HttpCallService} from '../Services/HttpCall.Service';
-import {EventsLogComponent} from './Components/EventsLog.component'
+import {EventsLogComponent} from './Components/EventsLog.component';
+import {EventLogListComponent} from './Components/EventLogList.component';
 @NgModule({
     imports:[ CommonModule,FormsModule,EventsRoutingModule,HttpModule],
-    declarations:[EventsLogComponent],
+    declarations:[EventsLogComponent,EventLogListComponent],
     providers:[HttpCallService]
 })
 

@@ -1,9 +1,10 @@
 import {NgModule} from "@angular/core";
 import { RouterModule, Routes }  from '@angular/router';
-import {EventsLogComponent} from './Components/EventsLog.component'
+import {EventsLogComponent} from './Components/EventsLog.component';
+import {EventLogListComponent} from './Components/EventLogList.component';
 const queueRoutes: Routes = [
-  { path: '',  component: EventsLogComponent }//,
- // { path: 'hero/:id', component: HeroDetailComponent }
+  { path: '',  component: EventsLogComponent ,
+  children:[{ path: ':id', component: EventLogListComponent }]}
 ];
 @NgModule({
   imports: [
