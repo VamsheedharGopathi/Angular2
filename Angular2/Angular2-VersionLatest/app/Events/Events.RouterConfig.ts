@@ -1,8 +1,8 @@
 import {NgModule} from "@angular/core";
 import { RouterModule, Routes }  from '@angular/router';
-import {QueueListComponent} from "./Components/QueueList.component";
+import {EventsLogComponent} from './Components/EventsLog.component'
 const queueRoutes: Routes = [
-  { path: '',  component: QueueListComponent }//,
+  { path: '',  component: EventsLogComponent }//,
  // { path: 'hero/:id', component: HeroDetailComponent }
 ];
 @NgModule({
@@ -13,4 +13,4 @@ const queueRoutes: Routes = [
     RouterModule
   ]
 })
-export class QueueRoutingModule {}
+export class EventsRoutingModule {}

@@ -1,5 +1,6 @@
 import {Component} from "@angular/core";
 import {HttpCallService} from  "../../Services/HttpCall.Service";
+import { Router }  from '@angular/router';
 @Component({
     moduleId:module.id,
     selector:"divTable-Component",
@@ -11,9 +12,9 @@ QueueData:any;
 CountVisible:boolean=false;
 //QueueDetails:any;
 error:any;
-    constructor(private httpService:HttpCallService){}
+    constructor(private httpService:HttpCallService,private router:Router){}
 
-    GetQueueNames()
+  /*  GetQueueNames()
     {
         this.httpService.httpMethodtype="Get";
         this.httpService.Url="http://localhost:64049/api/ECH/Queue";
@@ -21,7 +22,6 @@ error:any;
         this.httpService.CallHttpService().subscribe(
                        queue => this.QueueData=queue,
                        error =>  this.error = <any>error);
-       
     }
 
      GetQueueDetails(queue:any)
@@ -43,7 +43,11 @@ error:any;
         this.httpService.CallHttpService().subscribe(
                        queueDetails => queue.Details = queueDetails.result,
                        error =>  this.error = <any>error);
-       
+    }*/
+    CallLink(param:string)
+    {
+        this.router.navigate(['/'+param]);
     }
+    
 
 }

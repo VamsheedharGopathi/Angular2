@@ -1,4 +1,4 @@
-import {Component,Output} from '@angular/core'
+import {Component,Output,Input} from '@angular/core'
 import {HttpCallService} from '../../Services/HttpCall.Service';
 @Component({
     moduleId:module.id,
@@ -6,7 +6,7 @@ import {HttpCallService} from '../../Services/HttpCall.Service';
     templateUrl:"../Templates/Queues.html",
 })
 export class QueuesComponent{
-
+@Input() QueueData : any;
  constructor(private httpService:HttpCallService){}
     error:any;
     CountVisible:boolean=false;

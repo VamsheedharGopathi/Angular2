@@ -1,10 +1,12 @@
 import { NgModule }              from '@angular/core';
 import { RouterModule, Routes }  from '@angular/router';
-
+import {BodyComponent} from '../Component/Body/body.component'
 const appRoutes: Routes = [
-  //{ path: 'crisis-center', component: CrisisListComponent },
-   { path: 'Queues', loadChildren: 'app/Queues/Queues.module#QueueListComponent' },
-  //{ path: '**', component: PageNotFoundComponent }
+  { path: '', component: BodyComponent },
+  { path: 'home', component: BodyComponent },
+  { path: 'Queues', loadChildren: 'app/Queues/Queues.module#QueueModule' },
+  { path: 'Events', loadChildren: 'app/Events/Events.module#EventsModule' },
+  { path: '**', component: BodyComponent }
 ];
 
 @NgModule({

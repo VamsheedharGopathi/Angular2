@@ -1,27 +1,41 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <button class="btn btn-primary" (click)=GetQueueNames()>GetQueueNames</button>
-        </div>
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-4">
-        </div>
-    </div>
-    <br>
-    <div>
-        <template ngFor let-item [ngForOf]="QueueData" let-i="index">
-            <div class="row well well-sm divComponent">
-                <div class="col-md-12">
-                    <h2><span class="label label-default"> {{item.Name}}</span></h2>
-                    <div>
-                        <button class="btn btn-primary" (click)="GetQueueDetails(item)">GetMessagesCount</button>
-                    </div>
-                    <div *ngIf="CountVisible">
-                        <h2><span class="label label-default">{{item.Details}}</span></h2> <button *ngIf="item.Details>0" (click)="ClearQueueMessages(item)">Clear</button>
-                    </div>
+<div class="container" id="Home">
+    <div class="row ">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="bucket col-md-11 well well-sm" (click)="CallLink('Queues')">
+                   <strong> Queues</strong>
+                </div>
+                <div class="col-md-1">
                 </div>
             </div>
-        </template>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="bucket col-md-11 well well-sm" (click)="CallLink('Information')">
+                     <strong>Information</strong>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="bucket col-md-11 well well-sm" (click)="CallLink('Configuration')">
+                    <strong>Configuration</strong>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row ">
+                <div class="col-md-11">
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
