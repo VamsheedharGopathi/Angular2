@@ -1,8 +1,10 @@
 <div class="container">
     <template ngFor let-item [ngForOf]="eventLog" let-i="index">
         <div class="row well well-sm divComponent">
-            <div class="col-md-12" (click)="GetLogDetails(item)">
-                <h2><span class="label label-default"> {{item}}</span></h2>
+            <div class="col-md-12">
+                <a [routerLink]="[item]" routerLinkActive="active">
+                    <h2><span class="label label-default"> {{item}}</span></h2>
+                </a>
             </div>
         </div>
     </template>

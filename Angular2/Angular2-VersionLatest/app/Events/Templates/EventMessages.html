@@ -1,0 +1,11 @@
+<div class="container">
+    <template ngFor let-item [ngForOf]="logMessages" let-i="index">
+        <div class="row well well-sm divComponent">
+            <div class="col-md-12">
+                    <h2><span class="label label-default" [title]=[item.Message]> {{item.Message}}</span></h2>
+                    
+                    <h2><span class="label label-default" > {{item.Messagetype}}</span></h2>
+            </div>
+        </div>
+    </template>
+</div>
