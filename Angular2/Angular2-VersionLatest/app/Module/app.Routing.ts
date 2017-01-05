@@ -6,6 +6,7 @@ const appRoutes: Routes = [
   { path: 'home', component: BodyComponent },
   { path: 'Queues', loadChildren: 'app/Queues/Queues.module#QueueModule' },
   { path: 'Events', loadChildren: 'app/Events/Events.module#EventsModule' },
+  { path: 'Configuration', loadChildren: 'app/Configs/Config.Module#ConfigModule' },
   { path: '**', component: BodyComponent }
 ];
 
