@@ -6,7 +6,7 @@ import { ConfigurationListComponent } from './Components/ConfigurationList.compo
 //import {EventLogMessagesComponent} from './Components/EventLogMessages.component';
 const configRoutes: Routes = [
   {
-    path: '', component: ConfigurationComponent,
+    path: '', component: ConfigurationListComponent,
     children: [{ path: 'name', component: ConfigurationListComponent }//,
       //{ path: ':logName', component: EventLogListComponent },
       // { path: ':logName/:sourceName', component: EventLogMessagesComponent }

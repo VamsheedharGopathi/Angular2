@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import {ConfigRoutingModule,ConfigComponents} from './Config.Router';
 import {HttpCallService} from '../Services/HttpCall.Service';
 @NgModule({
-    imports:[ CommonModule,FormsModule,,HttpModule],
+    imports:[ CommonModule,FormsModule,ConfigRoutingModule,HttpModule],
     declarations:[ConfigComponents],
     providers:[HttpCallService]
 })
