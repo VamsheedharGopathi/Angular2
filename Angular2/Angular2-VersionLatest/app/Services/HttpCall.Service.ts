@@ -40,7 +40,7 @@ export class HttpCallService {
                         .catch(this.handleError);
     }
     private getHeaders(){
-      return new Headers({ 'Content-Type': 'application/json' });
+      return new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
     }
 
     private getOptions(){

@@ -19,3 +19,10 @@ font:bold;
 color: white;
 background-color: #337ab7;
 }
+.divHeight{
+    height: 800px;
+}
+
+.divHeight textarea{
+   height: 100% !important; 
+}

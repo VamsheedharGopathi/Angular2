@@ -2,13 +2,13 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
 import { ConfigurationComponent } from './Components/Configuartion.component';
 import { ConfigurationListComponent } from './Components/ConfigurationList.component';
-//import {EventsComponent} from './Components/Events.component';
+import {ConfigurationDetailsComponent} from './Components/ConfigurationDetails.component';
 //import {EventLogMessagesComponent} from './Components/EventLogMessages.component';
 const configRoutes: Routes = [
   {
-    path: '', component: ConfigurationListComponent,
-    children: [{ path: 'name', component: ConfigurationListComponent }//,
-      //{ path: ':logName', component: EventLogListComponent },
+    path: '', component: ConfigurationComponent,
+    children: [{ path: '', component: ConfigurationListComponent },
+     { path: ':configurationName', component: ConfigurationDetailsComponent }//,
       // { path: ':logName/:sourceName', component: EventLogMessagesComponent }
     ]
   }
@@ -23,4 +23,4 @@ const configRoutes: Routes = [
 })
 export class ConfigRoutingModule { }
 
-export const ConfigComponents = [ConfigurationComponent,ConfigurationListComponent]
+export const ConfigComponents = [ConfigurationComponent,ConfigurationListComponent,ConfigurationDetailsComponent]
