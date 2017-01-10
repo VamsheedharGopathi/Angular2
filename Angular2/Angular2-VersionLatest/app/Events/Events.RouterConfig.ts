@@ -4,6 +4,7 @@ import {EventsLogComponent} from './Components/EventsLog.component';
 import {EventLogListComponent} from './Components/EventLogList.component';
 import {EventsComponent} from './Components/Events.component';
 import {EventLogMessagesComponent} from './Components/EventLogMessages.component';
+import {EventLogCountComponent} from './Components/EventLogMessagesCount';
 const queueRoutes: Routes = [
   { path: '',  component: EventsComponent,
   children:[{ path: '', component:EventsLogComponent  },
@@ -20,4 +21,4 @@ const queueRoutes: Routes = [
 })
 export class EventsRoutingModule {}
 
-export const EventComponents=[EventsComponent,EventsLogComponent,EventLogListComponent,EventLogMessagesComponent]
+export const EventComponents=[EventsComponent,EventsLogComponent,EventLogListComponent,EventLogMessagesComponent,EventLogCountComponent]

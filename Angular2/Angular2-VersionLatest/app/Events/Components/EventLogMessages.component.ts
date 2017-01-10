@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpCallService } from '../../Services/HttpCall.Service'
 import { ActivatedRoute, Router } from '@angular/router';
+import {EventLogCountComponent} from './EventLogMessagesCount';
 import 'rxjs/add/operator/do';
 
 @Component({
@@ -22,8 +23,11 @@ export class EventLogMessagesComponent implements OnInit {
             .do(params => this.eventLogMessages = params)
             .subscribe(id => this.getEventLogMessages());
     }
-    
+
     getEventLogMessages() {
+        this.getEventLogs();
+    }
+    getEventLogs() {
         this.httpService.httpMethodtype = "Get";
         this.httpService.Url = "http://localhost:64049/api/ECH/Event/GetLogsBySourceName/" + this.eventLogMessages.logName;
         this.httpService.param = this.eventLogMessages.sourceName;

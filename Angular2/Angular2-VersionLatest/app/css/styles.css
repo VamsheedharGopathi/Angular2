@@ -14,6 +14,14 @@
 .divComponent h2{
           margin-top: 0px;
     }
+
+.count .btn {
+    margin-bottom: 5px; 
+}  
+.count h3{
+    margin-top: 0px;
+    margin-bottom: 0px; 
+} 
 #Home .bucket{
 font:bold;
 color: white;

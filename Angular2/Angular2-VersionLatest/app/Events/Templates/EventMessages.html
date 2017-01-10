@@ -1,4 +1,11 @@
 <div class="container">
+   
+    <div class="row count">
+        <div class="col-md-2"><button class="btn btn-primary" (click)="getEventLogs()">GetEventLogs</button> </div>
+        <div class="col-md-8">
+          <event-logCount></event-logCount>
+        </div>
+    </div>
     <template ngFor let-item [ngForOf]="logMessages" let-i="index">
         <div class="row well well-sm divComponent">
             <div class="col-md-12">
