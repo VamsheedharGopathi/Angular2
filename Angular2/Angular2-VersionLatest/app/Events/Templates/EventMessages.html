@@ -9,8 +9,8 @@
     <template ngFor let-item [ngForOf]="logMessages" let-i="index">
         <div class="row well well-sm divComponent">
             <div class="col-md-12">
-                <h2><span class="label label-default">{{item.MessageDateTime}}</span></h2>
-                <h2><span class="label label-default" [title]=[item.Message]> {{item.Message.slice(0,95)+'...'}}</span></h2>
+                <h2><span class="label label-default">{{item.MessageDateTime| date:'medium'}}</span></h2>
+                <h2><span class="label label-default" [title]=[item.Message]> {{item.Message.length>95?item.Message.slice(0,95)+'...':item.Message}}</span></h2>
                 <h2><span [class]=[item.MessageTypeClass]> {{item.Messagetype}}</span></h2>
             </div>
         </div>
