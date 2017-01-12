@@ -4,9 +4,10 @@ import { CommonModule }   from '@angular/common';
 import { HttpModule } from '@angular/http';
 import {EventsRoutingModule,EventComponents} from './Events.RouterConfig';
 import {HttpCallService} from '../Services/HttpCall.Service';
+import {MorePipe} from './Services/More.pipe'
 @NgModule({
     imports:[ CommonModule,FormsModule,EventsRoutingModule,HttpModule],
-    declarations:[EventComponents],
+    declarations:[EventComponents,MorePipe],
     providers:[HttpCallService]
 })
 
