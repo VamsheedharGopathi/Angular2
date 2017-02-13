@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import {BodyComponent} from '../Body/body.component';
 
 @Component({
@@ -8,6 +8,10 @@ import {BodyComponent} from '../Body/body.component';
   //directives:[BodyComponent]
 })
 
-export class PageComponent { 
+export class PageComponent implements OnInit { 
   name = 'ECH';
+
+  ngOnInit(){
+    alert('Base component');
+  }
 }
