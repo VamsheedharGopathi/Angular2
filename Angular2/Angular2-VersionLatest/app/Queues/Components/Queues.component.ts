@@ -13,7 +13,17 @@ export class QueuesComponent{
     GetQueueDetails(queue:any)
     {
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "http://localhost:64049/api/ECH/Queue/GetQueueMessages";
+        this.httpService.Url = "http://147.243.121.91/ECHAutomation/api/ECH/Queue/GetQueueMessages";
+        this.httpService.param = queue.Name;
+        this.httpService.CallHttpService().subscribe(
+            queueDetails => queue.Details = queueDetails.result,
+            error => this.error = <any>error);
+        this.CountVisible = true;
+    }
+    ClearQueueMessages(queue:any)
+    {
+        this.httpService.httpMethodtype = "Get";
+        this.httpService.Url = "http://147.243.121.91/ECHAutomation/api/ECH/Queue/ClearQueueMessages";
         this.httpService.param = queue.Name;
         this.httpService.CallHttpService().subscribe(
             queueDetails => queue.Details = queueDetails.result,

@@ -13,7 +13,7 @@ export class ConfigurationListComponent implements OnInit {
     ngOnInit() {
 
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "http://localhost:64049/api/ECH/Configuration";
+        this.httpService.Url = "http://147.243.121.91/ECHAutomation/api/ECH/Configuration";
         this.httpService.param = 'GetConfigurationFilename';
         this.httpService.CallHttpService().subscribe(
             res => this.configuartionFiles = res,

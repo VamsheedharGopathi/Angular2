@@ -24,7 +24,7 @@ export class EventLogListComponent implements OnInit {
 
   private getEventLogs() {
     this.httpService.httpMethodtype = "Get";
-    this.httpService.Url = "http://localhost:64049/api/ECH/Event/GetLogsByLogName";
+    this.httpService.Url = "http://147.243.121.91/ECHAutomation/api/ECH/Event/GetLogsByLogName";
     this.httpService.param = this.eventLogName;
     this.httpService.CallHttpService().subscribe(
       res => this.logList = res,

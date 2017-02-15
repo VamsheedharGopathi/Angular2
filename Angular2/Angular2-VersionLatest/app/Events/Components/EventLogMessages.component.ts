@@ -29,7 +29,7 @@ export class EventLogMessagesComponent implements OnInit {
     }
     getEventLogs() {
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "http://localhost:64049/api/ECH/Event/GetLogsBySourceName/" + this.eventLogMessages.logName;
+        this.httpService.Url = "http://147.243.121.91/ECHAutomation/api/ECH/Event/GetLogsBySourceName/" + this.eventLogMessages.logName;
         this.httpService.param = this.eventLogMessages.sourceName;
         this.httpService.CallHttpService().subscribe(
             res => this.logMessages = res,

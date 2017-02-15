@@ -26,7 +26,7 @@ export class ConfigurationDetailsComponent implements OnInit {
 
     getConfigurationDetails() {
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "http://localhost:64049/api/ECH/Configuration/ReadConfiguration";
+        this.httpService.Url = "http://147.243.121.91/ECHAutomation/api/ECH/Configuration/ReadConfiguration";
         this.httpService.param = this.configurationName;
         this.httpService.CallHttpService().subscribe(
             res => this.configurationDetails = res.result,
@@ -36,7 +36,7 @@ export class ConfigurationDetailsComponent implements OnInit {
     saveConfigurationDetails() {
         var data={filename:this.configurationName,fileData:this.configurationDetails};
         this.httpService.httpMethodtype = "post";
-        this.httpService.Url = "http://localhost:64049/api/ECH/Configuration/SaveConfiguration";
+        this.httpService.Url = "http://147.243.121.91/ECHAutomation/api/ECH/Configuration/SaveConfiguration";
         this.httpService.param ='='+JSON.stringify(data);
         this.httpService.CallHttpService().subscribe(
             res => res.result,

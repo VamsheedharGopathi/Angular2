@@ -6,7 +6,7 @@
                 <button class="btn btn-primary" (click)="GetQueueDetails(item)">GetMessagesCount</button>
             </div>
             <div *ngIf="CountVisible">
-                <h2><span class="label label-default">{{item.Details}}</span></h2> <button *ngIf="item.Details>0" (click)="ClearQueueMessages(item)">Clear</button>
+                <h2><span class="label label-default">{{item.Details}}</span></h2> <button  class="btn btn-primary" *ngIf="item.Details>0" (click)="ClearQueueMessages(item)">Clear</button>
             </div>
         </div>
     </div>
