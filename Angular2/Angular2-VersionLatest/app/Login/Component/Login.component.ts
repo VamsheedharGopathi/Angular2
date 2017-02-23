@@ -1,14 +1,18 @@
 import {Component} from '@angular/core'
-import {HttpCallService} from '../../Services/HttpCall.Service'
-
-Component({
+import {AuthenticateService} from '../../Services/Authenticate.Service'
+import {User} from '../../Common.models/User.Model'
+@Component({
     moduleId:module.id,
-    selector:'Login-Component',
+    selector:'Login',
     templateUrl:'../Templates/Login.html'
 })
 
 export class LoginComponent{
+    user:User=new User();
+    constructor(private Authenticate:AuthenticateService){
+    }
+    login(user:User){
+       this.Authenticate.login(user)
+    }
 
-    constructor(private httpServiceCall:HttpCallService){}
-    
 }

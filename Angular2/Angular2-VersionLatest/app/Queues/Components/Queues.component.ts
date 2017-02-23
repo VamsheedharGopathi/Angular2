@@ -1,15 +1,19 @@
-import {Component,Output,Input} from '@angular/core'
+import {Component,Output,Input,OnInit} from '@angular/core'
+import {HttpCallService} from '../../Services/HttpCall.Service';
 import {HttpCallService} from '../../Services/HttpCall.Service';
 @Component({
     moduleId:module.id,
     selector:"Queue",
     templateUrl:"../Templates/Queues.html",
 })
-export class QueuesComponent{
+export class QueuesComponent implements OnInit{
 @Input() QueueData : any;
  constructor(private httpService:HttpCallService){}
     error:any;
     CountVisible:boolean=false;
+    ngOnInit(){
+
+    }
     GetQueueDetails(queue:any)
     {
         this.httpService.httpMethodtype = "Get";

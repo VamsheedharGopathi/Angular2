@@ -8,11 +8,11 @@ import {BodyModule,Components } from './body.module';
 import {FooterComponent} from "../Component/Footer/footer.component";
 import { HttpModule } from '@angular/http';
 import {HttpCallService} from '../Services/HttpCall.Service';
-
+import {AuthenticateService} from '../Services/Authenticate.Service';
 @NgModule({
   imports:      [ BrowserModule,CommonModule,AppRoutingModule,BodyModule,HttpModule],
   declarations: [ PageComponent,MenuComponent,FooterComponent,Components],
-  providers:[HttpCallService],
+  providers:[HttpCallService,AuthenticateService],
   bootstrap:    [ PageComponent]
 })
 

@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>                        
       </button>
       <a class="navbar-brand" routerLink="/Home" routerLinkActive="active"><strong>{{user}}</strong></a>
-      
+
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -17,9 +17,12 @@
         </li>
         <li><a routerLink="/Events" routerLinkActive="active"><strong>Events</strong></a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a routerLink="/home" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a routerLink="/home" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <ul class="nav navbar-nav navbar-right" *ngIf="!isLoggedIn">
+          <li><a routerLink="/login" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+          <li><a routerLink="/login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="isLoggedIn">
+          <li (click)="logout()"><a routerLink="/login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> logout</a></li>
       </ul>
     </div>
   </div>

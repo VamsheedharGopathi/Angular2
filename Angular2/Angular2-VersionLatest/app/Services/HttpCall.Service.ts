@@ -29,7 +29,8 @@ export class HttpCallService {
     }
 
     private getMethod(){
-      return this.http.get(this.Url+'/'+this.param, {headers: this.getHeaders()})
+      let param=this.param!=undefined?'/'+this.param:'';
+      return this.http.get(this.Url+param, {headers: this.getHeaders()})
                           .map(this.extractData)
                           .catch(this.handleError);
     }

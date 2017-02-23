@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
+import { RouterModule,Routes } from '@angular/router'
 import {LoginComponent} from './Component/Login.component'
 
 const LoginRoutes: Routes = [
@@ -7,11 +7,17 @@ const LoginRoutes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(LoginRoutes)],
-    exports: [RouterModule]
+  imports: [
+    RouterModule.forChild(LoginRoutes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
 export class LoginRouterModule {
 
 }
 
 export const LoginComponents=[LoginComponent]
+
+
