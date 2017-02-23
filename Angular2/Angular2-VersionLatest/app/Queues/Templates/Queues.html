@@ -1,6 +1,6 @@
 <template ngFor let-item [ngForOf]="QueueData" let-i="index">
     <div class="row well well-sm divComponent">
-        <div class="col-md-12">
+        <div class="col-md-12 col-sm-12">
             <h2><span class="label label-default"> {{item.Name}}</span></h2>
             <div>
                 <button class="btn btn-primary" (click)="GetQueueDetails(item)">GetMessagesCount</button>

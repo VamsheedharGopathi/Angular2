@@ -1,14 +1,14 @@
 <div class="container">
    
     <div class="row count">
-        <div class="col-md-2"><button class="btn btn-primary" (click)="getEventLogs()">GetEventLogs</button> </div>
-        <div class="col-md-8">
+        <div class="col-md-2 col-sm-2"><button class="btn btn-primary" (click)="getEventLogs()">GetEventLogs</button> </div>
+        <div class="col-md-8 col-sm-8">
           <event-logCount></event-logCount>
         </div>
     </div>
     <template ngFor let-item [ngForOf]="logMessages" let-i="index">
         <div class="row well well-sm divComponent">
-            <div class="col-md-12">
+            <div class="col-md-12 col-sm-12">
                 <h2><span class="label label-default">{{item.MessageDateTime| date:'medium'}}</span></h2>
                 <h2><span class="label label-default" [title]=[item.Message]> {{item.Message | MoreStringPipe}}</span></h2>
                 <h2><span [class]=[item.MessageTypeClass]> {{item.Messagetype}}</span></h2>
