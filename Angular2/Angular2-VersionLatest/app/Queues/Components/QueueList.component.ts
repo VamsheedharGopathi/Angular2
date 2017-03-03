@@ -12,7 +12,7 @@ export class QueueListComponent implements OnInit{
     ngOnInit()
     {
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "http://147.243.121.91/ECHAutomation/api/ECH/Queue";
+        this.httpService.Url = "http://147.243.121.90/ECHAutomation/api/ECH/Queue";
         this.httpService.param ='GetQueueNames' ;
         this.httpService.CallHttpService().subscribe(
             queueDetails => this.queue = queueDetails,

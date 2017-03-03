@@ -6,6 +6,7 @@ const appRoutes: Routes = [
   { path: '', component: BodyComponent,canActivate: [AuthenticateService] },
   { path: 'home', component: BodyComponent,canActivate: [AuthenticateService] },
   { path: 'login', loadChildren: 'app/Login/Login.module#LoginModule' },
+  //{ path: 'Registration', loadChildren: 'app/Login/Login.module#LoginModule'},
   { path: 'Queues', loadChildren: 'app/Queues/Queues.module#QueueModule',canActivate: [AuthenticateService] },
   { path: 'Events', loadChildren: 'app/Events/Events.module#EventsModule',canActivate: [AuthenticateService] },
   { path: 'Configuration', loadChildren: 'app/Configs/Config.Module#ConfigModule',canActivate: [AuthenticateService] },

@@ -1,6 +1,5 @@
 import {Component,Output,Input,OnInit} from '@angular/core'
 import {HttpCallService} from '../../Services/HttpCall.Service';
-import {HttpCallService} from '../../Services/HttpCall.Service';
 @Component({
     moduleId:module.id,
     selector:"Queue",
@@ -17,7 +16,7 @@ export class QueuesComponent implements OnInit{
     GetQueueDetails(queue:any)
     {
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "http://147.243.121.91/ECHAutomation/api/ECH/Queue/GetQueueMessages";
+        this.httpService.Url = "http://147.243.121.90/ECHAutomation/api/ECH/Queue/GetQueueMessages";
         this.httpService.param = queue.Name;
         this.httpService.CallHttpService().subscribe(
             queueDetails => queue.Details = queueDetails.result,
@@ -27,7 +26,7 @@ export class QueuesComponent implements OnInit{
     ClearQueueMessages(queue:any)
     {
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "http://147.243.121.91/ECHAutomation/api/ECH/Queue/ClearQueueMessages";
+        this.httpService.Url = "http://147.243.121.90/ECHAutomation/api/ECH/Queue/ClearQueueMessages";
         this.httpService.param = queue.Name;
         this.httpService.CallHttpService().subscribe(
             queueDetails => queue.Details = queueDetails.result,

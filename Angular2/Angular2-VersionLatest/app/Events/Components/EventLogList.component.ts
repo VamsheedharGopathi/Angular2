@@ -10,6 +10,7 @@ import 'rxjs/add/operator/do';
 export class EventLogListComponent implements OnInit {
   eventLogName: string;
   logList: any;
+  NoDataMessage:boolean=false;
   error: any;
 
   constructor(private httpService: HttpCallService, private route: ActivatedRoute, private router: Router) { }
@@ -24,10 +25,16 @@ export class EventLogListComponent implements OnInit {
 
   private getEventLogs() {
     this.httpService.httpMethodtype = "Get";
-    this.httpService.Url = "http://147.243.121.91/ECHAutomation/api/ECH/Event/GetLogsByLogName";
+    this.httpService.Url = "http://147.243.121.90/ECHAutomation/api/ECH/Event/GetLogsByLogName";
     this.httpService.param = this.eventLogName;
     this.httpService.CallHttpService().subscribe(
-      res => this.logList = res,
+      res =>this.mapData(res),
       error => this.error = <any>error);
+  }
+
+  private mapData(result:any)
+  {
+    this.logList=result;
+    this.NoDataMessage=(result.length==0)
   }
 }

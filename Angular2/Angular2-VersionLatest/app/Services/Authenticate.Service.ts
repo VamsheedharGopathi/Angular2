@@ -20,8 +20,16 @@ export class AuthenticateService implements CanActivate {
     private AuthenticateUser(user: User) {
         this.httpServiceCall.Url = '../../app/Files/login.json';
         this.httpServiceCall.httpMethodtype = "get";
-        //this.httpServiceCall.param = ;
+        this.httpServiceCall.param = null;
         this.httpServiceCall.CallHttpService().subscribe(u => this.goto(u, user), err => this.error = err)
+    }
+    registrator(user: User) {
+        //const fs = require('fs-extra')
+        // this.fs;
+        //  var m = JSON.parse(fs.readFileSync('../../app/Files/login.json').toString());
+        //   m[m.length]=new User();
+        //  m[m.length]=user;
+        //  fs.writeFile('../../app/Files/login.json', JSON.stringify(m));
     }
     isLoggedIn() {
         return this.User == null ? false : true;
@@ -29,15 +37,14 @@ export class AuthenticateService implements CanActivate {
     logOut() {
         this.User = null;
     }
-    goto(u: any, user: User) {
+    goto(u: User[], user: User) {
         let count = 0;
-        u.forEach((element: any) => {
+        u.forEach((element: User) => {
             count = count + 1;
-            while (element.Name == user.Name && element.Password == user.Password) {
+            if (element.Name == user.Name && element.Password == user.Password) {
                 this.User = element;
                 user = element;
                 this.router.navigate(['/home']);
-                break;
             }
             if (count == u.length && !this.isLoggedIn()) {
                 alert("Login Failed")
