@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class EventLogCountComponent implements OnInit, OnDestroy {
-    @Input() count: number;
+    @Input() count: number=0;
     message: 'hello';
     eventLogMessages: any;
 
@@ -40,7 +40,7 @@ export class EventLogCountComponent implements OnInit, OnDestroy {
         this.httpService.Url = "http://147.243.121.90/ECHAutomation/api/ECH/Event/GetLogsCount/" + this.eventLogMessages.logName;
         this.httpService.param = this.eventLogMessages.sourceName;
         this.httpService.CallHttpService().subscribe(
-            res => this.count = res ,
-            error => this.error = <any>error);
+            res =>(res)=>{this.count = res;this.httpService.Request=false;} ,
+            error =>()=>{this.httpService.Request=false;});
     }
 }

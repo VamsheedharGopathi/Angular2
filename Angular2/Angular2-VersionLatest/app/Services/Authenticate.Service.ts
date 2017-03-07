@@ -21,7 +21,7 @@ export class AuthenticateService implements CanActivate {
         this.httpServiceCall.Url = '../../app/Files/login.json';
         this.httpServiceCall.httpMethodtype = "get";
         this.httpServiceCall.param = null;
-        this.httpServiceCall.CallHttpService().subscribe(u => this.goto(u, user), err => this.error = err)
+        this.httpServiceCall.CallHttpService().subscribe(u => this.goto(u, user), err => () => { this.httpServiceCall.Request = false; })
     }
     registrator(user: User) {
         //const fs = require('fs-extra')
@@ -50,7 +50,7 @@ export class AuthenticateService implements CanActivate {
                 alert("Login Failed")
             }
         });
-
+        this.httpServiceCall.Request = false;
     }
 
 }

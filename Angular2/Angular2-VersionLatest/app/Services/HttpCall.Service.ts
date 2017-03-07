@@ -12,7 +12,9 @@ export class HttpCallService {
  result:any;
  Url:string="";
  param:any;
+ Request:boolean=true;
     CallHttpService(): Observable<any>{
+      this.Request=true;
         let people$;
           if (this.httpMethodtype.toLocaleLowerCase()=="get") {
             people$ = this.getMethod();

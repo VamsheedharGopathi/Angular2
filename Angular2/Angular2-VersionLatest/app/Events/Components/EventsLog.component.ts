@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpCallService } from '../../Services/HttpCall.Service';
-import { Router }  from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
     moduleId: module.id,
@@ -9,20 +9,28 @@ import { Router }  from '@angular/router';
 })
 
 export class EventsLogComponent implements OnInit {
-    eventLog: any;
+    eventLog = [];
     error: any;
-    constructor(private httpService: HttpCallService,private router:Router) { }
+    constructor(private httpService: HttpCallService, private router: Router) { }
     ngOnInit() {
         this.httpService.httpMethodtype = "Get";
         this.httpService.Url = "http://147.243.121.90/ECHAutomation/api/ECH/Event";
         this.httpService.param = 'GetEventLogNames';
         this.httpService.CallHttpService().subscribe(
-            res => this.eventLog = res,
-            error => this.error = <any>error);
+            res => this.parse(res),
+            error => this.parseError(error));
     }
 
-    GetLogDetails(param:string){
-        this.router.navigate(['Events/'+param]);
+    parse(res: any) {
+        this.eventLog = res;
+        this.httpService.Request = false;
+    }
+    parseError(error: any) {
+        this.error = error;
+    }
+
+    GetLogDetails(param: string) {
+        this.router.navigate(['Events/' + param]);
     }
 
 }

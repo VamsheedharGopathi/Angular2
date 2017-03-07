@@ -35,10 +35,11 @@ export class EventLogMessagesComponent implements OnInit {
         this.httpService.param = this.eventLogMessages.sourceName;
         this.httpService.CallHttpService().subscribe(
             res => this.paras(res),
-            error => this.error = <any>error);
+            error =>()=>{this.httpService.Request=false;});
     }
     paras(res: any) {
             this.logMessages = res;
             this.MessageCount = res.length;
+            this.httpService.Request=false;
     }
 }

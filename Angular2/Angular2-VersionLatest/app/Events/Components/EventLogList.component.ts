@@ -29,7 +29,7 @@ export class EventLogListComponent implements OnInit {
     this.httpService.param = this.eventLogName;
     this.httpService.CallHttpService().subscribe(
       res => this.mapData(res),
-      error => this.error = <any>error);
+      error =>()=>{this.httpService.Request=false; } );
   }
 
   private mapData(result: any) {
@@ -40,5 +40,6 @@ export class EventLogListComponent implements OnInit {
     else{
       this.NoDataMessage =true;
     }
+    this.httpService.Request=false;
   }
 }
