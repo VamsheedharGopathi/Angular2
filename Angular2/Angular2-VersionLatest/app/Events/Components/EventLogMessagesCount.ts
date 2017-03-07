@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, OnInit, OnDestroy } from "@angular/core";
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, OnInit, OnDestroy,Input } from "@angular/core";
 import { HttpCallService } from '../../Services/HttpCall.Service';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
@@ -8,10 +8,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class EventLogCountComponent implements OnInit, OnDestroy {
-    count: number;
+    @Input() count: number;
     message: 'hello';
     eventLogMessages: any;
-    
+
     intervalfun: any = null;
     //logMessages: any;
     error: any;
@@ -37,7 +37,7 @@ export class EventLogCountComponent implements OnInit, OnDestroy {
     }
     getEventLogs() {
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "http://147.243.121.91/ECHAutomation/api/ECH/Event/GetLogsCount/" + this.eventLogMessages.logName;
+        this.httpService.Url = "http://147.243.121.90/ECHAutomation/api/ECH/Event/GetLogsCount/" + this.eventLogMessages.logName;
         this.httpService.param = this.eventLogMessages.sourceName;
         this.httpService.CallHttpService().subscribe(
             res => this.count = res ,
