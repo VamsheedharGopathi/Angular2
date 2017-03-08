@@ -3,9 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpCallService } from '../../Services/HttpCall.Service'
 import 'rxjs/add/operator/do';
 @Component({
-    moduleId: module.id,
+   // moduleId: module.id,
     selector: 'configuartion-Details',
-    templateUrl: '../Templates/ConfigurationDetails.html'
+    templateUrl: '/app/Configs/Templates/ConfigurationDetails.html'
 })
 
 export class ConfigurationDetailsComponent implements OnInit {

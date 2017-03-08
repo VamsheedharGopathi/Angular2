@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpCallService } from '../../Services/HttpCall.Service'
 @Component({
-    moduleId: module.id,
+   // moduleId: module.id,
     selector: 'configurationList',
-    templateUrl: '../Templates/ConfigurationList.html'
+    templateUrl: '/app/Configs/Templates/ConfigurationList.html'
 })
 
 export class ConfigurationListComponent implements OnInit {

@@ -3,9 +3,9 @@ import { HttpCallService } from '../../Services/HttpCall.Service'
 import { ActivatedRoute, Router } from '@angular/router';
 import 'rxjs/add/operator/do';
 @Component({
-  moduleId: module.id,
+ // moduleId: module.id,
   selector: 'eventLogList',
-  templateUrl: '../Templates/EventsLogList.html'
+  templateUrl: '/app/Events/Templates/EventsLogList.html'
 })
 export class EventLogListComponent implements OnInit {
   eventLogName: string;

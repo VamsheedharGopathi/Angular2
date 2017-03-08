@@ -2,9 +2,9 @@ import { Component, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, OnIni
 import { HttpCallService } from '../../Services/HttpCall.Service';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
-    moduleId: module.id,
+   // moduleId: module.id,
     selector: 'event-logCount',
-    templateUrl: '../Templates/EventCount.html'
+    templateUrl: '/app/Events/Templates/EventCount.html'
 })
 
 export class EventLogCountComponent implements OnInit, OnDestroy {

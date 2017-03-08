@@ -1,9 +1,9 @@
 import {Component,OnInit} from "@angular/core";
 import {HttpCallService} from '../../Services/HttpCall.Service';
 @Component({
-    moduleId:module.id,
+    //moduleId:module.id,
     selector:"QueueList",
-    templateUrl:"../Templates/QueueList.html",
+    templateUrl:"/app/Queues/Templates/QueueList.html",
 })
 export class QueueListComponent implements OnInit{
     queue:any;

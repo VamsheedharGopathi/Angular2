@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core"
 import { AuthenticateService } from "../../Services/Authenticate.Service"
 @Component({
-	moduleId: module.id,
+	//moduleId: module.id,
 	selector: 'menu-component',
 	templateUrl: '/app/Templates/menu_Component.html'
 })

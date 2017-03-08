@@ -1,11 +1,12 @@
 
-import {Component,OnDestroy} from '@angular/core'
-import {AuthenticateService} from '../../Services/Authenticate.Service'
-import {User} from '../../Common.models/User.Model'
+import {Component,OnDestroy} from '@angular/core';
+import {AuthenticateService} from '../../Services/Authenticate.Service';
+import {User} from '../../Common.models/User.Model';
+
 @Component({
-    moduleId:module.id,
+   // moduleId:module.id,
     selector: 'Registration',
-    templateUrl:'../Templates/Registration.html'
+    templateUrl:'/app/Login/Templates/Registration.html'
 })
 
 export class RegistrationComponent implements OnDestroy{

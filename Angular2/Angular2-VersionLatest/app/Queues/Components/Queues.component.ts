@@ -1,9 +1,9 @@
 import {Component,Output,Input,OnInit} from '@angular/core'
 import {HttpCallService} from '../../Services/HttpCall.Service';
 @Component({
-    moduleId:module.id,
+  //  moduleId:module.id,
     selector:"Queue",
-    templateUrl:"../Templates/Queues.html",
+    templateUrl:"/app/Queues/Templates/Queues.html",
 })
 export class QueuesComponent implements OnInit{
 @Input() QueueData : any;

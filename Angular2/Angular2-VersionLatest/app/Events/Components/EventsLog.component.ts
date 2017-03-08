@@ -3,9 +3,9 @@ import { HttpCallService } from '../../Services/HttpCall.Service';
 import { Router } from '@angular/router';
 
 @Component({
-    moduleId: module.id,
+   // moduleId: module.id,
     selector: 'EventsLog',
-    templateUrl: '../Templates/EventsLog.html'
+    templateUrl: '/app/Events/Templates/EventsLog.html'
 })
 
 export class EventsLogComponent implements OnInit {

@@ -3,7 +3,7 @@ import { BodyComponent } from '../Body/body.component';
 //import { Router } from '@angular/router';
 import { HttpCallService } from '../../Services/HttpCall.Service'
 @Component({
-  moduleId: module.id,
+ // moduleId: module.id,
   selector: 'my-app',
   templateUrl: '/app/Templates/page_component.html'
 })

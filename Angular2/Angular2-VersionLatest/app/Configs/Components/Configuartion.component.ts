@@ -1,9 +1,9 @@
 import {Component} from "@angular/core";
 
 @Component({
-    moduleId:module.id,
+    //moduleId:module.id,
     selector:'Configuration',
-    templateUrl:'../Templates/Configuartion.html'
+    templateUrl:'/app/Configs/Templates/Configuartion.html'
 })
 export class ConfigurationComponent{
 

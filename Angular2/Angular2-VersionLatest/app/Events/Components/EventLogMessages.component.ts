@@ -5,9 +5,9 @@ import { EventLogCountComponent } from './EventLogMessagesCount';
 import 'rxjs/add/operator/do';
 
 @Component({
-    moduleId: module.id,
+    //moduleId: module.id,
     selector: 'event-messages',
-    templateUrl: '../Templates/EventMessages.html'
+    templateUrl: '/app/Events/Templates/EventMessages.html'
 })
 
 export class EventLogMessagesComponent implements OnInit {

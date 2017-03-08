@@ -9,7 +9,7 @@ import { HttpCallService } from '../../Services/HttpCall.Service';
 })
 export class SpinnerComponent implements OnDestroy {
 
-    
+
     private currentTimeout: any;
     private Timer:any;
     private isDelayedRunning: boolean = true;
@@ -47,7 +47,7 @@ export class SpinnerComponent implements OnDestroy {
     timerRequest() {
       this.Timer= setInterval(() => {
                this.isRunning = this.httpCall.Request;
-               console.log(this.httpCall.Request);
+               //console.log(this.httpCall.Request);
         }, 1000);
     }
 
