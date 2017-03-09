@@ -15,6 +15,7 @@ export class EventLogMessagesComponent implements OnInit {
     logMessages: any[];
     MessageCount: number;
     error: any;
+    copyData: boolean = false;
     constructor(private httpService: HttpCallService, private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit() {
@@ -28,18 +29,22 @@ export class EventLogMessagesComponent implements OnInit {
     getEventLogMessages() {
         this.getEventLogs();
     }
+    copyText(event: any) {
+        event.MessageCopy = event.MessageCopy ? false : true;
+    }
     getEventLogs() {
         this.logMessages = [];
+        this.httpService.OpenRequest();
         this.httpService.httpMethodtype = "Get";
         this.httpService.Url = "http://147.243.121.90/ECHAutomation/api/ECH/Event/GetLogsBySourceName/" + this.eventLogMessages.logName;
         this.httpService.param = this.eventLogMessages.sourceName;
         this.httpService.CallHttpService().subscribe(
             res => this.paras(res),
-            error =>()=>{this.httpService.Request=false;});
+            error => () => { this.httpService.CloseRequest(); });
     }
     paras(res: any) {
-            this.logMessages = res;
-            this.MessageCount = res.length;
-            this.httpService.Request=false;
+        this.logMessages = res;
+        this.MessageCount = res.length;
+        this.httpService.CloseRequest();
     }
 }

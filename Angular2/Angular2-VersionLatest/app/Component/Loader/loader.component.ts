@@ -11,7 +11,7 @@ export class SpinnerComponent implements OnDestroy {
 
 
     private currentTimeout: any;
-    private Timer:any;
+    private Timer: any;
     private isDelayedRunning: boolean = true;
 
     @Input()
@@ -32,27 +32,28 @@ export class SpinnerComponent implements OnDestroy {
         this.currentTimeout = setTimeout(() => {
             this.isDelayedRunning = value;
             this.cancelTimeout();
-       }, this.delay);
+        }, this.delay);
     }
     constructor(private httpCall: HttpCallService) {
-        this.isRunning=httpCall.Request;
-        this.timerRequest();
+        //this.isRunning=httpCall.RequestStatus();
+       this.Timer = setInterval(() => {
+            this.isRunning =httpCall.RequestStatus();
+                console.log(httpCall.RequestStatus());
+        }, 500);
     }
-    
+
 
     private cancelTimeout(): void {
         clearTimeout(this.currentTimeout);
         this.currentTimeout = undefined;
     }
-    timerRequest() {
-      this.Timer= setInterval(() => {
-               this.isRunning = this.httpCall.Request;
-               //console.log(this.httpCall.Request);
-        }, 1000);
+    
+    private RequestStatus(): boolean {
+        return this.httpCall.RequestStatus();
     }
 
     ngOnDestroy(): any {
         this.cancelTimeout();
-         clearTimeout(this.Timer);
+        clearTimeout(this.Timer);
     }
 }

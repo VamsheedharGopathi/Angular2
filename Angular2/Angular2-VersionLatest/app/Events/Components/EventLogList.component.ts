@@ -24,12 +24,13 @@ export class EventLogListComponent implements OnInit {
   }
 
   private getEventLogs() {
+    this.httpService.OpenRequest();
     this.httpService.httpMethodtype = "Get";
     this.httpService.Url = "http://147.243.121.90/ECHAutomation/api/ECH/Event/GetLogsByLogName";
     this.httpService.param = this.eventLogName;
     this.httpService.CallHttpService().subscribe(
       res => this.mapData(res),
-      error =>()=>{this.httpService.Request=false; } );
+      error =>()=>{ this.httpService.CloseRequest(); } );
   }
 
   private mapData(result: any) {
@@ -40,6 +41,6 @@ export class EventLogListComponent implements OnInit {
     else{
       this.NoDataMessage =true;
     }
-    this.httpService.Request=false;
+     this.httpService.CloseRequest();
   }
 }

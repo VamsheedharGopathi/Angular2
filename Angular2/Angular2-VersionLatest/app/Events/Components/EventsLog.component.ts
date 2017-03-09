@@ -13,6 +13,7 @@ export class EventsLogComponent implements OnInit {
     error: any;
     constructor(private httpService: HttpCallService, private router: Router) { }
     ngOnInit() {
+        this.httpService.OpenRequest();
         this.httpService.httpMethodtype = "Get";
         this.httpService.Url = "http://147.243.121.90/ECHAutomation/api/ECH/Event";
         this.httpService.param = 'GetEventLogNames';
@@ -23,10 +24,11 @@ export class EventsLogComponent implements OnInit {
 
     parse(res: any) {
         this.eventLog = res;
-        this.httpService.Request = false;
+         this.httpService.CloseRequest();
     }
     parseError(error: any) {
         this.error = error;
+        this.httpService.CloseRequest();
     }
 
     GetLogDetails(param: string) {

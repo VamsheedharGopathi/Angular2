@@ -9,7 +9,8 @@
     <div class="row well well-sm divComponent">
       <div class="col-md-12 col-sm-12">
         <h2><span class="label label-default">{{item.MessageDateTime| date:'medium'}}</span></h2>
-        <h2><span class="label label-default" [title]=[item.Message]> {{item.Message | MoreStringPipe}}</span></h2>
+        <h2 (click)="copyText(item)"><span class="label label-default" [title]=[item.Message]> {{item.Message | MoreStringPipe}}</span></h2>
+        <textarea class="form-control " [style.display]="item.MessageCopy?'inherit':'none'"  [value]="item.Message" ng-paste="false"></textarea>
         <h2><span [class]=[item.MessageTypeClass]> {{item.Messagetype}}</span></h2>
       </div>
     </div>

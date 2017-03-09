@@ -18,6 +18,7 @@ export class AuthenticateService implements CanActivate {
         this.AuthenticateUser(user);
     }
     private AuthenticateUser(user: User) {
+        this.httpServiceCall.OpenRequest();
         this.httpServiceCall.Url = '../../app/Files/login.json';
         this.httpServiceCall.httpMethodtype = "get";
         this.httpServiceCall.param = null;
@@ -50,7 +51,7 @@ export class AuthenticateService implements CanActivate {
                 alert("Login Failed")
             }
         });
-        this.httpServiceCall.Request = false;
+        this.httpServiceCall.CloseRequest();
     }
 
 }
