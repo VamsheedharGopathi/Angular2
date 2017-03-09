@@ -38,7 +38,7 @@ export class SpinnerComponent implements OnDestroy {
         //this.isRunning=httpCall.RequestStatus();
        this.Timer = setInterval(() => {
             this.isRunning =httpCall.RequestStatus();
-                console.log(httpCall.RequestStatus());
+                //console.log(httpCall.RequestStatus());
         }, 500);
     }
 
