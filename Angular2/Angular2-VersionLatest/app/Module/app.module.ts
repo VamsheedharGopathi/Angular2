@@ -11,6 +11,7 @@ import { HttpModule } from '@angular/http';
 import {HttpCallService} from '../Services/HttpCall.Service';
 import {AuthenticateService} from '../Services/Authenticate.Service';
 import {LocalStorageService} from '../Services/LocalStorage';
+
 @NgModule({
   imports:      [ BrowserModule,CommonModule,AppRoutingModule,BodyModule,HttpModule],
   declarations: [ PageComponent,MenuComponent,FooterComponent,Components,SpinnerComponent],

@@ -1,5 +1,5 @@
-<!--<div class="container">
-    <template ngFor let-item [ngForOf]="eventLog" let-i="index">
+<div class="container">
+    <template ngFor let-item [ngForOf]="Collection" let-i="index">
         <div class="row well well-sm divComponent">
             <div class="col-md-12 col-sm-12">
                 <a [routerLink]="[item]" routerLinkActive="active">
@@ -8,5 +8,4 @@
             </div>
         </div>
     </template>
-</div>-->
-<list-component [Collection]="eventLog"></list-component>
+</div>

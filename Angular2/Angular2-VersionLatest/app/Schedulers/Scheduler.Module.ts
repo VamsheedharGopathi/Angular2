@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import {SchedulerRoutingModule,SchedulerComponents} from './Scheduler.RouterConfig'
 import {HttpCallService} from '../Services/HttpCall.Service'
 
+
 @NgModule({
     imports:[ CommonModule,FormsModule,SchedulerRoutingModule,HttpModule],
     declarations:SchedulerComponents,
