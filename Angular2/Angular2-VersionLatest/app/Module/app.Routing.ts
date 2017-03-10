@@ -10,6 +10,7 @@ const appRoutes: Routes = [
   { path: 'Queues', loadChildren: 'app/Queues/Queues.module#QueueModule',canActivate: [AuthenticateService] },
   { path: 'Events', loadChildren: 'app/Events/Events.module#EventsModule',canActivate: [AuthenticateService] },
   { path: 'Configuration', loadChildren: 'app/Configs/Config.Module#ConfigModule',canActivate: [AuthenticateService] },
+  { path: 'Services', loadChildren: 'app/Schedulers/Scheduler.Module#SchedulerModule',canActivate: [AuthenticateService] },
   { path: '**', component: BodyComponent,canActivate: [AuthenticateService] }
 ];
 

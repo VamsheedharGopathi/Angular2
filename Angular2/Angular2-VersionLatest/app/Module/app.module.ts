@@ -14,7 +14,7 @@ import {LocalStorageService} from '../Services/LocalStorage';
 @NgModule({
   imports:      [ BrowserModule,CommonModule,AppRoutingModule,BodyModule,HttpModule],
   declarations: [ PageComponent,MenuComponent,FooterComponent,Components,SpinnerComponent],
-  providers:[HttpCallService,AuthenticateService,LocalStorageService],
+  providers:    [HttpCallService,AuthenticateService,LocalStorageService],
   bootstrap:    [ PageComponent]
 })
 
