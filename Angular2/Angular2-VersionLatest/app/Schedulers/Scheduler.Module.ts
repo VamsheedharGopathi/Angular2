@@ -5,12 +5,13 @@ import { FormsModule }    from '@angular/forms';
 import { CommonModule }   from '@angular/common';
 import { HttpModule } from '@angular/http';
 import {SchedulerRoutingModule,SchedulerComponents} from './Scheduler.RouterConfig'
+import {ListComponent} from '../Component/Commmon/list.Component'
 import {HttpCallService} from '../Services/HttpCall.Service'
 
 
 @NgModule({
     imports:[ CommonModule,FormsModule,SchedulerRoutingModule,HttpModule],
-    declarations:SchedulerComponents,
+    declarations:[SchedulerComponents],
     providers:[HttpCallService]
 })
 
