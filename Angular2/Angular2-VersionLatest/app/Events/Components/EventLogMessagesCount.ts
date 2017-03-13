@@ -38,7 +38,7 @@ export class EventLogCountComponent implements OnInit, OnDestroy {
     getEventLogs() {
         this.httpService.OpenRequest();
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "http://147.243.121.90/ECHAutomation/api/ECH/Event/GetLogsCount/" + this.eventLogMessages.logName;
+        this.httpService.Url = "ECHAutomation/api/ECH/Event/GetLogsCount/" + this.eventLogMessages.logName;
         this.httpService.param = this.eventLogMessages.sourceName;
         this.httpService.CallHttpService().subscribe(
             res =>(res)=>{this.count = res; this.httpService.CloseRequest();} ,

@@ -8,6 +8,8 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class HttpCallService {
+
+  private localUrl = 'http://147.243.121.90/';
   constructor(private http: Http, private session: LocalStorageService) { }
   httpMethodtype: string = "";
   result: any;
@@ -28,7 +30,7 @@ export class HttpCallService {
 
   public RequestStatus(): boolean {
     if (this.session.localStorage != {}) {
-      let data=this.session.localStorage;
+      let data = this.session.localStorage;
       return data.Request ? true : false;
     }
     return false;
@@ -47,13 +49,13 @@ export class HttpCallService {
 
   private getMethod() {
     let param = this.param != undefined ? '/' + this.param : '';
-    return this.http.get(this.Url + param, { headers: this.getHeaders() })
+    return this.http.get(this.localUrl+this.Url + param, { headers: this.getHeaders() })
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   private postMethod() {
-    return this.http.post(this.Url, this.param, this.getOptions())
+    return this.http.post(this.localUrl+this.Url, this.param, this.getOptions())
       .map(this.extractData)
       .catch(this.handleError);
   }

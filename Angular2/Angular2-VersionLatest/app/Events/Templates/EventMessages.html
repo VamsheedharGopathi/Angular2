@@ -1,6 +1,31 @@
 <div class="container">
+  <div class="well well-sm ">
+    <div class="row">
+      <div class="col-md-3 col-sm-3">
+        <h2><label class="label label-primary"><input type="checkbox"/> Critical</label></h2>
+      </div>
+      <div class="col-md-3 col-sm-3">
+        <h2><label class="label label-warning"><input type="checkbox"/> Warning</label></h2>
+      </div>
+      <div class="col-md-3 col-sm-3">
+        <h2><label class="label label-danger"><input type="checkbox"/> Error</label></h2>
+      </div>
+      <div class="col-md-3 col-sm-3">
+        <h2><label class="label label-info"><input type="checkbox"/> Information</label></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <input class="form-control" id="inputdefault" type="date">
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <input class="form-control" id="inputdefault" type="date">
+      </div>
+    </div>
+  </div>
+
   <div class="row count">
-    <div class="col-md-2 col-sm-2"><button class="btn btn-primary"  (click)="getEventLogs()">GetEventLogs</button> </div>
+    <div class="col-md-2 col-sm-2"><button class="btn btn-primary" (click)="getEventLogs()">GetEventLogs</button> </div>
     <div class="col-md-8 col-sm-8">
       <event-logCount [count]="MessageCount"></event-logCount>
     </div>
@@ -9,11 +34,11 @@
     <div class="row well well-sm divComponent">
       <div class="col-md-12 col-sm-12">
         <h2><span class="label label-default">{{item.MessageDateTime| date:'medium'}}</span></h2>
-        <h2 (click)="copyText(item)"><span class="label label-default" [title]=[item.Message]> {{item.Message | MoreStringPipe}}</span></h2>
-        <textarea class="form-control " [style.display]="item.MessageCopy?'inherit':'none'"  [value]="item.Message" ng-paste="false"></textarea>
+        <h2 (click)="copyText(item)"><span class="label label-default" data-toggle="tooltip" data-placement="top" [title]=[item.Message]> {{item.Message | MoreStringPipe}}</span></h2>
+        <textarea class="form-control " [style.display]="item.MessageCopy?'inherit':'none'" [value]="item.Message" ng-paste="false"></textarea>
         <h2><span [class]=[item.MessageTypeClass]> {{item.Messagetype}}</span></h2>
       </div>
     </div>
   </template>
- 
+
 </div>
