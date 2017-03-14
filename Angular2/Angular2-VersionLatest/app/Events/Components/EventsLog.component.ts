@@ -15,7 +15,7 @@ export class EventsLogComponent implements OnInit {
     ngOnInit() {
         this.httpService.OpenRequest();
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "ECHAutomation/api/ECH/Event";
+        this.httpService.Url = "api/ECH/Event";
         this.httpService.param = 'GetEventLogNames';
         this.httpService.CallHttpService().subscribe(
             res => this.parse(res),

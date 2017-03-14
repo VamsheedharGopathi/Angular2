@@ -18,7 +18,7 @@ export class QueuesComponent implements OnInit, AfterViewInit {
     GetQueueDetails(queue: any) {
         this.httpService.OpenRequest();
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "ECHAutomation/api/ECH/Queue/GetQueueMessages";
+        this.httpService.Url = "api/ECH/Queue/GetQueueMessages";
         this.httpService.param = queue.Name;
         this.httpService.CallHttpService().subscribe(
             queueDetails => this.parseResult(queueDetails, queue),
@@ -28,7 +28,7 @@ export class QueuesComponent implements OnInit, AfterViewInit {
     ClearQueueMessages(queue: any) {
         this.httpService.OpenRequest();
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "ECHAutomation/api/ECH/Queue/ClearQueueMessages";
+        this.httpService.Url = "api/ECH/Queue/ClearQueueMessages";
         this.httpService.param = queue.Name;
         this.httpService.CallHttpService().subscribe(
             queueDetails => this.parseResult(queueDetails, queue),

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpCallService } from '../../Services/HttpCall.Service'
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventLogCountComponent } from './EventLogMessagesCount';
+import { Criteria } from '../../Common.models/Criteria.Model'
 import 'rxjs/add/operator/do';
 
 @Component({
@@ -16,7 +17,12 @@ export class EventLogMessagesComponent implements OnInit {
     MessageCount: number;
     error: any;
     copyData: boolean = false;
-    constructor(private httpService: HttpCallService, private route: ActivatedRoute, private router: Router) { }
+    eventLogCriteria: Criteria;
+    foundlog: boolean;
+    constructor(private httpService: HttpCallService, private route: ActivatedRoute, private router: Router, private criteria: Criteria) {
+        this.eventLogCriteria = criteria;
+        this.eventLogCriteria.Level = new Array<Number>();
+    }
 
     ngOnInit() {
         this.route
@@ -27,24 +33,46 @@ export class EventLogMessagesComponent implements OnInit {
     }
 
     getEventLogMessages() {
-        this.getEventLogs();
+        //this.getEventLogs();
     }
     copyText(event: any) {
         event.MessageCopy = event.MessageCopy ? false : true;
     }
-    getEventLogs() {
-        this.logMessages = [];
-        this.httpService.OpenRequest();
-        this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "ECHAutomation/api/ECH/Event/GetLogsBySourceName/" + this.eventLogMessages.logName;
-        this.httpService.param = this.eventLogMessages.sourceName;
-        this.httpService.CallHttpService().subscribe(
-            res => this.paras(res),
-            error => () => { this.httpService.CloseRequest(); });
+    getLevel(level: number, evt: any) {
+        if (evt.target.checked)
+            this.eventLogCriteria.Level.push(level);
+        else
+            this.eventLogCriteria.Level = this.eventLogCriteria.Level.filter(function (data) {
+                return data != level;
+            })
     }
-    paras(res: any) {
+    getEventLogs() {
+        if (this.eventLogCriteria.DateFrom != undefined && this.eventLogCriteria.DateTo != undefined && this.eventLogCriteria.Level.length > 0) {
+            var data = this.eventLogCriteria;
+            this.httpService.OpenRequest();
+            this.httpService.httpMethodtype = "post";
+            this.httpService.Url = "api/ECH/Event/GetLogsByCriteria/" + this.eventLogMessages.logName + "/" + this.eventLogMessages.sourceName;
+            this.httpService.param = '=' + JSON.stringify(data);
+            this.httpService.CallHttpService().subscribe(
+                res => this.parseResult(res),
+                error => this.parseError(error));
+
+        }
+        else {
+            alert('Please select the Criteria');
+        }
+    }
+    parseResult(res: any) {
         this.logMessages = res;
         this.MessageCount = res.length;
+        this.foundlog = false;
         this.httpService.CloseRequest();
     }
+    parseError(error: any) {
+        this.httpService.CloseRequest();
+    }
+    onColorChange(event) {
+        this.foundlog = event;
+    }
+
 }

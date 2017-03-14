@@ -29,7 +29,7 @@ export class ConfigurationDetailsComponent implements OnInit, AfterViewInit {
     getConfigurationDetails() {
         this.httpService.OpenRequest();
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "ECHAutomation/api/ECH/Configuration/ReadConfiguration";
+        this.httpService.Url = "api/ECH/Configuration/ReadConfiguration";
         this.httpService.param = this.configurationName;
         this.httpService.CallHttpService().subscribe(
             res => this.parseResult(res),
@@ -40,7 +40,7 @@ export class ConfigurationDetailsComponent implements OnInit, AfterViewInit {
         this.httpService.OpenRequest();
         var data = { filename: this.configurationName, fileData: this.configurationDetails };
         this.httpService.httpMethodtype = "post";
-        this.httpService.Url = "ECHAutomation/api/ECH/Configuration/SaveConfiguration";
+        this.httpService.Url = "api/ECH/Configuration/SaveConfiguration";
         this.httpService.param = '=' + JSON.stringify(data);
         this.httpService.CallHttpService().subscribe(
             res => this.SuccessMessage(),

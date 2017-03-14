@@ -9,10 +9,11 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class HttpCallService {
 
-  private localUrl = 'http://147.243.121.90/';
+  private localUrl = 'http://localhost:64049/';//'http://147.243.121.90/ECHAutomation/';
   constructor(private http: Http, private session: LocalStorageService) { }
   httpMethodtype: string = "";
   result: any;
+  connectToLocal:boolean=false;
   Url: string = "";
   param: any;
   @Input() Request: boolean;
@@ -49,13 +50,15 @@ export class HttpCallService {
 
   private getMethod() {
     let param = this.param != undefined ? '/' + this.param : '';
-    return this.http.get(this.localUrl+this.Url + param, { headers: this.getHeaders() })
+    let URI=(this.connectToLocal==false?this.localUrl:'')+this.Url + param;
+    return this.http.get(URI, { headers: this.getHeaders() })
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   private postMethod() {
-    return this.http.post(this.localUrl+this.Url, this.param, this.getOptions())
+    let URI=(this.connectToLocal==false?this.localUrl:'')+this.Url;
+    return this.http.post(URI, this.param, this.getOptions())
       .map(this.extractData)
       .catch(this.handleError);
   }

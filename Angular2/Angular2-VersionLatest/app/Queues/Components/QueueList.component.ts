@@ -15,7 +15,7 @@ export class QueueListComponent implements OnInit,AfterViewInit {
     ngOnInit() {
         this.httpService.OpenRequest();
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "ECHAutomation/api/ECH/Queue";
+        this.httpService.Url = "api/ECH/Queue";
         this.httpService.param = 'GetQueueNames';
         this.httpService.CallHttpService().subscribe(
             queueDetails => this.parse( queueDetails),

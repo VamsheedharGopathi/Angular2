@@ -19,6 +19,7 @@ export class AuthenticateService implements CanActivate {
     }
     private AuthenticateUser(user: User) {
         this.httpServiceCall.OpenRequest();
+        this.httpServiceCall.connectToLocal=true;
         this.httpServiceCall.Url = '../../app/Files/login.json';
         this.httpServiceCall.httpMethodtype = "get";
         this.httpServiceCall.param = null;

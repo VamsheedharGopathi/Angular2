@@ -1,35 +1,42 @@
 <div class="container">
   <div class="well well-sm ">
     <div class="row">
-      <div class="col-md-3 col-sm-3">
-        <h2><label class="label label-primary"><input type="checkbox"/> Critical</label></h2>
+      <div class="col-md-3 col-sm-3" align="center">
+        <h2><label class="label label-primary"><input type="checkbox" (change)="getLevel(1,$event)"/> Critical</label></h2>
       </div>
-      <div class="col-md-3 col-sm-3">
-        <h2><label class="label label-warning"><input type="checkbox"/> Warning</label></h2>
+      <div class="col-md-3 col-sm-3" align="center">
+        <h2><label class="label label-warning"><input type="checkbox" (change)="getLevel(3,$event)"/> Warning</label></h2>
       </div>
-      <div class="col-md-3 col-sm-3">
-        <h2><label class="label label-danger"><input type="checkbox"/> Error</label></h2>
+      <div class="col-md-3 col-sm-3" align="center">
+        <h2><label class="label label-danger"><input type="checkbox" (change)="getLevel(2,$event)"/> Error</label></h2>
       </div>
-      <div class="col-md-3 col-sm-3">
-        <h2><label class="label label-info"><input type="checkbox"/> Information</label></h2>
+      <div class="col-md-3 col-sm-3" align="center">
+        <h2><label class="label label-info"><input type="checkbox" (change)="getLevel(4,$event)"/> Info</label></h2>
       </div>
     </div>
+    <br/>
     <div class="row">
       <div class="col-md-6 col-sm-6">
-        <input class="form-control" id="inputdefault" type="date">
+        <input class="form-control" id="inputdefault" type="date" [(ngModel)]="eventLogCriteria.DateFrom" required>
       </div>
       <div class="col-md-6 col-sm-6">
-        <input class="form-control" id="inputdefault" type="date">
+        <input class="form-control" id="inputdefault" type="date" [(ngModel)]="eventLogCriteria.DateTo" required>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <div class="col-md-12 col-sm-12" align="center">
+        <button class="btn btn-primary" (click)="getEventLogs()">GetEventLogs</button>
       </div>
     </div>
   </div>
-
+  <br/>
   <div class="row count">
-    <div class="col-md-2 col-sm-2"><button class="btn btn-primary" (click)="getEventLogs()">GetEventLogs</button> </div>
-    <div class="col-md-8 col-sm-8">
-      <event-logCount [count]="MessageCount"></event-logCount>
+    <div class="col-md-12 col-sm-12">
+      <event-logCount [foundCount]="foundlog" [count]="MessageCount" [levelCriteria]="eventLogCriteria" (ColorChange)="onColorChange($event)"></event-logCount>
     </div>
   </div>
+  <br/>
   <template ngFor let-item [ngForOf]="logMessages" let-i="index">
     <div class="row well well-sm divComponent">
       <div class="col-md-12 col-sm-12">
