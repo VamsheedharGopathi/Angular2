@@ -16,11 +16,21 @@
     </div>
     <br/>
     <div class="row">
-      <div class="col-md-6 col-sm-6">
+      <div class="col-md-1 col-sm-1">
+      </div>
+      <div class="col-md-3 col-sm-3">
         <input class="form-control" id="inputdefault" type="date" [(ngModel)]="eventLogCriteria.DateFrom" required>
       </div>
-      <div class="col-md-6 col-sm-6">
-        <input class="form-control" id="inputdefault" type="date" [(ngModel)]="eventLogCriteria.DateTo" required>
+      <div class="col-md-2 col-sm-2">
+        <input class="form-control" id="inputdefault" type="time" [(ngModel)]="eventLogCriteria.DateFromTime"  required>
+      </div>
+      <div class="col-md-3 col-sm-3">
+        <input class="form-control" id="inputdefault" type="date" [(ngModel)]="eventLogCriteria.DateTo"  required>
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <input class="form-control" id="inputdefault" type="time" [(ngModel)]="eventLogCriteria.DateToTime"  required>
+      </div>
+      <div class="col-md-1 col-sm-1">
       </div>
     </div>
     <br/>

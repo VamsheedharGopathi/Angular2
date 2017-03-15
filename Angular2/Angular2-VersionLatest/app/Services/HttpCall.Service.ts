@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class HttpCallService {
 
-  private localUrl = 'http://localhost:64049/';//'http://147.243.121.90/ECHAutomation/';
+  private localUrl ='http://147.243.121.90/ECHAutomation/';//'http://localhost:64049/';
   constructor(private http: Http, private session: LocalStorageService) { }
   httpMethodtype: string = "";
   result: any;

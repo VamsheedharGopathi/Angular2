@@ -22,6 +22,8 @@ export class EventLogMessagesComponent implements OnInit {
     constructor(private httpService: HttpCallService, private route: ActivatedRoute, private router: Router, private criteria: Criteria) {
         this.eventLogCriteria = criteria;
         this.eventLogCriteria.Level = new Array<Number>();
+        this.eventLogCriteria.DateFromTime="01:00";
+        this.eventLogCriteria.DateToTime="09:00";
     }
 
     ngOnInit() {
