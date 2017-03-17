@@ -32,7 +32,7 @@ export class HttpCallService {
   public RequestStatus(): boolean {
     if (this.session.localStorage != {}) {
       let data = this.session.localStorage;
-      return data.Request ? true : false;
+      return data["Request"];
     }
     return false;
   }
