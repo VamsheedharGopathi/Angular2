@@ -2,7 +2,7 @@ import {Component} from '@angular/core'
 
 @Component({
     selector:'scheduler-component',
-    template:'<router-outlet></router-outlet>'
+    templateUrl:'/app/Schedulers/Templates/Scheduler.html'
 })
 
 export class SchedulerComponent{

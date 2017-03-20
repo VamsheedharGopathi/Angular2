@@ -1,0 +1,16 @@
+<div class="container">
+  <template ngFor let-item [ngForOf]="schedulerList" let-i="index">
+    <div class="row well well-sm divComponent">
+      <div class="col-md-4 col-sm-6" align="left">
+        <h2><span class="label label-default"> {{item.DisplayName}}</span></h2>
+      </div>
+      <div class="col-md-4 col-sm-4" align="right">
+        <h2><span class="label label-default"> {{item.MachineName}}</span></h2>
+      </div>
+      <div class="col-md-4 col-sm-2" *ngIf="item.ShowAction" align="right">
+        <button class="btn btn-success" *ngIf="item.Status==1" (click)="statusAction(item)">Start</button>
+        <button class="btn btn-danger" *ngIf="item.Status==4" (click)="statusAction(item)">Stop</button>
+      </div>
+    </div>
+  </template>
+</div>

@@ -1,0 +1,23 @@
+<div class="container" *ngIf="serviceDetails!=undefind">
+  <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <h2><span class="label label-default">{{serviceDetails.DisplayName}}</span></h2>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <h2><span class="label label-default">{{serviceDetails.MachineName}}</span></h2>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-3 col-sm-3">
+    </div>
+     <div class="col-md-3 col-sm-3">
+         <button class="btn btn-success">Start</button>
+    </div>
+    <div class="col-md-3 col-sm-3">
+        <button class="btn btn-danger">Stop</button>
+    </div>
+     <div class="col-md-3 col-sm-3">
+    </div>
+  </div>
+</div>
