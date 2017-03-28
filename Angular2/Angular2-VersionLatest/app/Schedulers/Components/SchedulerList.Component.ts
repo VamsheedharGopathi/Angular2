@@ -29,7 +29,7 @@ export class SchedulerListComponent implements OnInit, OnDestroy {
     statusAction(item: any) {
         this.httpCall.OpenRequest();
         this.httpCall.httpMethodtype = 'get';
-        this.httpCall.Url = 'api/ECH/Services/MakeAction/' + item.ServiceName;
+        this.httpCall.Url = 'api/ECH/Services/MakeAction/' + item.Name;
         this.httpCall.param = item.Status == 1 ? 4 : 1;
         this.httpCall.CallHttpService().subscribe(
             res => this.parseStatusResult(),
