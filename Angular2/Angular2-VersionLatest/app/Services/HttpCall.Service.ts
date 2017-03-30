@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class HttpCallService {
 
-  private localUrl ='http://servermonitorapis.azurewebsites.net/';//'http://localhost:64049/';
+  private localUrl ='http://servermonitorapis.azurewebsites.net/';//'http://localhost:64049/';//
   constructor(private http: Http, private session: LocalStorageService) { }
   httpMethodtype: string = "";
   result: any;
