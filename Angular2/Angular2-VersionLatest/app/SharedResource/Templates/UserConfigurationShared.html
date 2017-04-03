@@ -1,0 +1,10 @@
+<div class="panel-body">
+  <template ngFor let-item [ngForOf]="Items" let-i="index">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <h2><input type="checkbox" [(ngModel)]="item.Status"/>
+        <label [ngClass]="item.Status?'label label-success':'label label-default'">{{item.Name}}</label></h2>
+      </div>
+    </div>
+  </template>
+</div>

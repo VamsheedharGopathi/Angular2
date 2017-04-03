@@ -12,6 +12,5 @@ export class AddUserComponent {
     user: User;
     constructor(private httpcall: HttpCallService, private u: User) {
         this.user = u;
-        
     }
 }

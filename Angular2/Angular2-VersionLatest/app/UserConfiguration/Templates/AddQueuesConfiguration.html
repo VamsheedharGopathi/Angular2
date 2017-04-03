@@ -1,10 +1,1 @@
-<div class="panel-body">
-  <div class="row" *ngFor="let item in Items">
-    <div class="col-md-8 col-sm-4">
-      {{item.Name}}
-    </div>
-    <div class="col-md-4 col-sm-4">
-      <input type="checkbox" checked="item.Status" />
-    </div>
-  </div>
-</div>
+<sharedUserConfiguartion-Component [Items]="queueCollection"></sharedUserConfiguartion-Component>
