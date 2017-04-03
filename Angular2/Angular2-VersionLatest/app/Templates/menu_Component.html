@@ -19,9 +19,10 @@
         </li>
         <li><a routerLink="/Events" routerLinkActive="active"><strong>Events</strong></a></li>
         <li><a routerLink="/Services" routerLinkActive="active"><strong>Services</strong></a></li>
+         <li><a routerLink="/UserConfiguration" routerLinkActive="active"><strong>User Configuration </strong></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" *ngIf="!isLoggedIn">
-        <!-- <li><a routerLink="login/Registration" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span>Register</a></li>-->
+         <li><a routerLink="login/Registration" routerLinkActive="active"><span class="glyphicon glyphicon-user"></span>Register</a></li>
         <li><a routerLink="/login" routerLinkActive="active"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" *ngIf="isLoggedIn">

@@ -1,7 +1,10 @@
 
 export class User {
-    Name: string;
+    FirstName: string;
+    LastName:string;
     Password: string;
     Email:string;
+    PhoneNumber:Number;
+    ExpiryDays:Number;
     Status: boolean;
 }

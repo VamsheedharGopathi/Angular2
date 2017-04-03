@@ -1,0 +1,20 @@
+<div class="container">
+  <ul class="nav nav-pills nav-justified">
+    <template ngFor let-item [ngForOf]="tabArray" let-i="index">
+      <li [ngClass]="item.status==1?'active':''" (click)="tabClick(item)"><a><strong>{{item.name}}</strong></a></li>
+
+    </template>
+    <!-- <li><a><strong>Queue</strong></a></li>
+      <li><a><strong>Configuration</strong></a></li>
+      <li><a><strong>Events</strong></a></li>
+      <li><a><strong>Services</strong></a></li>-->
+  </ul>
+  <template ngFor let-item [ngForOf]="tabArray" let-i="index">
+    <div [ngStyle]="{'display': item.status==1?'block':'none'}">
+      <div class="panel panel-default">
+        <div class="panel-heading"><strong>{{item.name}}</strong></div>
+        <dynamic-Component [type]="item.html"></dynamic-Component>
+      </div>
+    </div>
+  </template>
+</div>

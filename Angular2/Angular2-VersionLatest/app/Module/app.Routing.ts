@@ -11,6 +11,7 @@ const appRoutes: Routes = [
   { path: 'Events', loadChildren: 'app/Events/Events.module#EventsModule',canActivate: [AuthenticateService] },
   { path: 'Configuration', loadChildren: 'app/Configs/Config.Module#ConfigModule',canActivate: [AuthenticateService] },
   { path: 'Services', loadChildren: 'app/Schedulers/Scheduler.Module#SchedulerModule',canActivate: [AuthenticateService] },
+  { path: 'UserConfiguration', loadChildren: 'app/UserConfiguration/UserConfiguration.Module#UserConfiguartiomModule',canActivate: [AuthenticateService] },
   { path: '**', component: BodyComponent,canActivate: [AuthenticateService] }
 ];
 
