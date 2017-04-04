@@ -43,7 +43,7 @@ export class AuthenticateService implements CanActivate {
         let count = 0;
         u.forEach((element: User) => {
             count = count + 1;
-            if (element.Name == user.Name && element.Password == user.Password) {
+            if (element.FirstName == user.FirstName && element.Password == user.Password) {
                 this.User = element;
                 user = element;
                 this.router.navigate(['/home']);

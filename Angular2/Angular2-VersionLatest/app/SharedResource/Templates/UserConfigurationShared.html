@@ -2,8 +2,8 @@
   <template ngFor let-item [ngForOf]="Items" let-i="index">
     <div class="row">
       <div class="col-md-12 col-sm-12">
-        <h2><input type="checkbox" [(ngModel)]="item.Status"/>
-        <label [ngClass]="item.Status?'label label-success':'label label-default'">{{item.Name}}</label></h2>
+       <label> <h2><input type="checkbox" [(ngModel)]="item.Status"/>
+        <span [ngClass]="item.Status?'label label-success':'label label-default'">{{item.Name}}</span></h2></label>
       </div>
     </div>
   </template>

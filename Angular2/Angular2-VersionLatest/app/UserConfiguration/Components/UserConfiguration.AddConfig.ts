@@ -9,7 +9,7 @@ import { Config } from '../../Common.models/Config.Model'
     templateUrl: '/app/UserConfiguration/Templates/AddConfigConfiguration.html'
 })
 
-export class UserQueueConfigurationComponent implements OnInit {
+export class UserConfigConfigurationComponent implements OnInit {
    
     @Input() configCollection = [Config];
     error: any;
@@ -20,8 +20,8 @@ export class UserQueueConfigurationComponent implements OnInit {
         var v = this;
         this.httpService.OpenRequest();
         this.httpService.httpMethodtype = "Get";
-        this.httpService.Url = "api/ECH/Queue";
-        this.httpService.param = 'GetQueueNames';
+        this.httpService.Url = "api/ECH/Configuration";
+        this.httpService.param = 'GetConfigurationFilename';
         this.httpService.CallHttpService().subscribe(
             queueDetails => this.ParseResult(queueDetails),
             error => this.error = <any>error);

@@ -7,7 +7,18 @@
   <template ngFor let-item [ngForOf]="tabArray" let-i="index">
     <div [ngStyle]="{'display': item.status==1?'block':'none'}">
       <div class="panel panel-default">
-        <div class="panel-heading"><strong>{{item.name}}</strong></div>
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-md-8 col-sm-8">
+              <strong>{{item.name}}</strong>
+            </div>
+            <div class="col-md-4 col-sm-4">
+              <div class="col-sm-offset-2 col-sm-10" align="right">
+                <button type="button" class="btn btn-primary" (click)="nextClick(item)">{{NextText}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <dynamic-Component [type]="item.html"></dynamic-Component>
       </div>
     </div>
