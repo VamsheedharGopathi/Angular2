@@ -17,7 +17,7 @@ export class SchedulerListComponent implements OnInit, OnDestroy {
         this.intervalfun = setInterval(() => {
             this.getProcesses();
             this.changeDetectorRef.detectChanges();
-        }, 10000);
+        }, 100000);
 
     }
     ngOnDestroy() {
@@ -56,7 +56,7 @@ export class SchedulerListComponent implements OnInit, OnDestroy {
     }
 
     private parseResult(res: any) {
-        this.schedulerList = res;
+        this.schedulerList = res.result;
         this.httpCall.CloseRequest();
     }
     private parseError(error: any) {

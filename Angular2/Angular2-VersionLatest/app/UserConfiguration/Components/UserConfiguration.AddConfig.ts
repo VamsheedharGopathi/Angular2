@@ -1,7 +1,8 @@
 'use strict'
 
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpCallService } from '../../Services/HttpCall.Service';
+import { ConfigurationData } from '../../Services/LocalStorage';
 import { Config } from '../../Common.models/Config.Model'
 
 @Component({
@@ -10,11 +11,12 @@ import { Config } from '../../Common.models/Config.Model'
 })
 
 export class UserConfigConfigurationComponent implements OnInit {
-   
+
     @Input() configCollection = [Config];
     error: any;
-    constructor(private httpService: HttpCallService) {
-        this.configCollection = [];
+    constructor(private httpService: HttpCallService, private configurationData: ConfigurationData) {
+        //this.configCollection = [];
+        configurationData.AddConfiguration = [];
     }
     ngOnInit() {
         var v = this;
@@ -32,7 +34,7 @@ export class UserConfigConfigurationComponent implements OnInit {
             let con = new Config();
             con.Name = data.Name;
             con.Status = false;
-            this.configCollection.push(con);
+            this.configurationData.AddConfiguration.push(con);
         }, this);
         this.httpService.CloseRequest();
     }

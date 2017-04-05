@@ -1,5 +1,6 @@
 import { Component, ViewChild, ViewContainerRef, ComponentFactoryResolver, AfterViewInit, ComponentFactory, ComponentRef } from '@angular/core'
 import { HttpCallService } from '../../Services/HttpCall.Service';
+import { ConfigurationData } from '../../Services/LocalStorage';
 import { AddUserComponent } from "./UserConfiguration.AddUser.Component";
 import { UserQueueConfigurationComponent } from "./UserConfiguration.AddQueue.Configuration";
 import { UserConfigConfigurationComponent } from "./UserConfiguration.AddConfig";
@@ -17,7 +18,7 @@ export class AddConfiguartionComponent implements AfterViewInit {
     genericCollection = [];
     error: any
     NextText: string = 'Next';
-    constructor(private httpService: HttpCallService, private _componentFactoryResolver: ComponentFactoryResolver) {
+    constructor(private httpService: HttpCallService, private _componentFactoryResolver: ComponentFactoryResolver, private configurationData: ConfigurationData) {
         this.genericCollection = [];
         var data = [];
         var dat = this._componentFactoryResolver;
@@ -32,12 +33,7 @@ export class AddConfiguartionComponent implements AfterViewInit {
     tabClick(tabItem: any) {
         this.tabArray.filter(function (data) {
             if (data.name == tabItem.name) {
-                if (tabItem.order == this.tabArray.length) {
-                    this.NextText = 'Save';
-                }
-                else {
-                    this.NextText = 'Next';
-                }
+                this.NextText = tabItem.order == this.tabArray.length ? 'Save' : 'Next';
                 data.status = 1;
             }
             else {
@@ -47,21 +43,38 @@ export class AddConfiguartionComponent implements AfterViewInit {
     }
 
     nextClick(nextItem: any) {
-        this.tabArray.filter(function (data) {
-            if (data.order == nextItem.order + 1) {
-                if (nextItem.order + 1 == this.tabArray.length) {
-                    this.NextText = 'Save';
+        if (nextItem.order == this.tabArray.length) {
+            this.saveUserConfiguration();
+        }
+        else {
+            this.tabArray.filter(function (data) {
+                if (data.order == nextItem.order + 1) {
+                    this.NextText = nextItem.order + 1 == this.tabArray.length ? 'Save' : 'Next';
+                    data.status = 1;
                 }
                 else {
-                    this.NextText = 'Next';
+                    data.status = 0;
                 }
-                data.status = 1;
-            }
-            else {
+            }, this);
+        }
+    }
 
-                data.status = 0;
-            }
-        }, this);
+    private saveUserConfiguration() {
+        var data=
+        { 
+            User:this.configurationData.AddUser,
+            Queue:this.configurationData.AddQueue.filter(function(data){return data.Status}),
+            ConfigurationFiles:this.configurationData.AddConfiguration.filter(function(data){return data.Status}),
+            Events:this.configurationData.AddEvent.filter(function(data){return data.Status}),
+            Services:this.configurationData.AddServiceS.filter(function(data){return data.Status}),
+        };
+        this.httpService.OpenRequest();
+        this.httpService.httpMethodtype = 'post';
+        this.httpService.Url = 'api/ECH/User/SaveUsers';
+        this.httpService.param = '=' + JSON.stringify(data);
+        this.httpService.CallHttpService().subscribe(
+            res => res.result,
+            error => { });
     }
 
     ngAfterViewInit() {

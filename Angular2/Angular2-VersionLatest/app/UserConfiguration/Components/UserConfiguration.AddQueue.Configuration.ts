@@ -3,7 +3,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { HttpCallService } from '../../Services/HttpCall.Service';
 import { Queue } from '../../Common.models/Queues.Model'
-
+import { ConfigurationData } from '../../Services/LocalStorage';
 @Component({
     selector: 'queueConfiguartion-Component',
     templateUrl: '/app/UserConfiguration/Templates/AddQueuesConfiguration.html'
@@ -13,8 +13,8 @@ export class UserQueueConfigurationComponent implements OnInit {
    
     @Input() queueCollection = [Queue];
     error: any;
-    constructor(private httpService: HttpCallService) {
-        this.queueCollection = [];
+    constructor(private httpService: HttpCallService,private configurationData:ConfigurationData) {
+        this.configurationData.AddQueue = [];
     }
     ngOnInit() {
         var v = this;
@@ -32,7 +32,7 @@ export class UserQueueConfigurationComponent implements OnInit {
             let q = new Queue();
             q.Name = data.Name;
             q.Status = false;
-            this.queueCollection.push(q);
+            this.configurationData.AddQueue.push(q);
         }, this);
         this.httpService.CloseRequest();
     }

@@ -3,6 +3,7 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { HttpCallService } from '../../Services/HttpCall.Service';
 import { Event } from '../../Common.models/Event.Model'
+import { ConfigurationData } from '../../Services/LocalStorage';
 
 @Component({
     selector: 'UserEvent-Component',
@@ -13,8 +14,8 @@ export class UserEventConfigurationComponent implements OnInit {
    
     @Input() eventCollection = [Event];
     error: any;
-    constructor(private httpService: HttpCallService) {
-        this.eventCollection = [];
+    constructor(private httpService: HttpCallService,private configurationData:ConfigurationData ) {
+        this.configurationData.AddEvent = [];
     }
      ngOnInit() {
         this.httpService.OpenRequest();
@@ -31,7 +32,7 @@ export class UserEventConfigurationComponent implements OnInit {
             let event = new Event();
             event.Name = data.Name;
             event.Status = false;
-            this.eventCollection.push(event);
+            this.configurationData.AddEvent.push(event);
         }, this);
         this.httpService.CloseRequest();
     }

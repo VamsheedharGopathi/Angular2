@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'
 import { HttpCallService } from '../../Services/HttpCall.Service';
+import { ConfigurationData } from '../../Services/LocalStorage';
 import { User } from '../../Common.models/User.Model'
 @Component({
     selector: 'addUser-Component',
@@ -10,7 +11,7 @@ export class AddUserComponent {
     //tabArray: Array<{ name: string, status: Number }>;
 
     user: User;
-    constructor(private httpcall: HttpCallService, private u: User) {
-        this.user = u;
+    constructor(private httpcall: HttpCallService, private u: User,private configurationData:ConfigurationData) {
+        this.configurationData.AddUser = u;
     }
 }
