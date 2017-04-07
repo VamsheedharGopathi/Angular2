@@ -18,12 +18,20 @@ export class AuthenticateService implements CanActivate {
         this.AuthenticateUser(user);
     }
     private AuthenticateUser(user: User) {
+        /**
+         * 
+          this.httpServiceCall.OpenRequest();
+            this.httpServiceCall.connectToLocal = true;
+            this.httpServiceCall.Url = '../../app/Files/login.json';
+            this.httpServiceCall.httpMethodtype = "get";
+            this.httpServiceCall.param = null;
+            this.httpServiceCall.CallHttpService().subscribe(u => this.goto(u, user), err => () => { this.httpServiceCall.Request = false; })*/
+        var dataString = JSON.stringify(user);
         this.httpServiceCall.OpenRequest();
-        this.httpServiceCall.connectToLocal=true;
-        this.httpServiceCall.Url = '../../app/Files/login.json';
-        this.httpServiceCall.httpMethodtype = "get";
-        this.httpServiceCall.param = null;
-        this.httpServiceCall.CallHttpService().subscribe(u => this.goto(u, user), err => () => { this.httpServiceCall.Request = false; })
+        this.httpServiceCall.Url = 'api/ECH/User/GetUser';
+        this.httpServiceCall.httpMethodtype = "post";
+        this.httpServiceCall.param = dataString;
+        this.httpServiceCall.CallHttpService().subscribe(u => this.goto(u), err => this.Parseerror(err));
     }
     registrator(user: User) {
         //const fs = require('fs-extra')
@@ -36,22 +44,18 @@ export class AuthenticateService implements CanActivate {
     isLoggedIn() {
         return this.User == null ? false : true;
     }
+    GetLoginUser(): User {
+        return this.User;
+    }
     logOut() {
         this.User = null;
     }
-    goto(u: User[], user: User) {
-        let count = 0;
-        u.forEach((element: User) => {
-            count = count + 1;
-            if (element.FirstName == user.FirstName && element.Password == user.Password) {
-                this.User = element;
-                user = element;
-                this.router.navigate(['/home']);
-            }
-            if (count == u.length && !this.isLoggedIn()) {
-                alert("Login Failed")
-            }
-        });
+    goto(u: User) {
+       this.User=u;
+        this.httpServiceCall.CloseRequest();
+        this.router.navigate(['/Home'])
+    }
+    Parseerror(e: any) {
         this.httpServiceCall.CloseRequest();
     }
 

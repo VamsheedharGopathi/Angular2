@@ -1,3 +1,5 @@
+
+
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Injectable, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -63,7 +65,10 @@ export class HttpCallService {
       .catch(this.handleError);
   }
   private getHeaders() {
-    return new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+    var headers=new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+     headers.append('Authorization', 'Basic '+btoa("{'user':'vamsheedhar','password':'12345'}")); 
+    return headers;
+   //return new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
   }
 
   private getOptions() {

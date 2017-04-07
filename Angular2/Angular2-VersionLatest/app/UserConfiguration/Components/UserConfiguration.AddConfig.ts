@@ -32,6 +32,7 @@ export class UserConfigConfigurationComponent implements OnInit {
     private ParseResult(result: [any]) {
         result.forEach(function (data: any) {
             let con = new Config();
+            con.ID = data.ID;
             con.Name = data.Name;
             con.Status = false;
             this.configurationData.AddConfiguration.push(con);

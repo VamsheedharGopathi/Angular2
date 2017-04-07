@@ -45,7 +45,7 @@ export class SchedulerListComponent implements OnInit, OnDestroy {
         this.httpCall.OpenRequest();
         this.httpCall.httpMethodtype = 'get';
         this.httpCall.Url = 'api/ECH/Services';
-        this.httpCall.param = 'GetProcesses';
+        this.httpCall.param = 'GetUserProcesses';
         this.httpCall.CallHttpService().subscribe(
             res => this.parseResult(res),
             error => { });

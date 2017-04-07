@@ -1,4 +1,15 @@
 <div class="panel-body">
+<div class="row">
+<div class="col-md-8 col-sm-8">
+ <input class="form-control" type="text" id="sm" placeholder="Search User">
+</div>
+<div class="col-md-4 col-sm-4">
+<button class="btn btn-primary">Search</button>
+</div>
+</div>
+<br/>
+<div class="row">
+<div class="col-md-12 col-sm-12">
   <form class="form-horizontal">
     <div class="form-group">
       <label class="control-label col-sm-2" for="FirstName">First Name:</label>
@@ -16,7 +27,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="EmailID">Email-ID:</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="EmailID" [(ngModel)]="configurationData.AddUser.Email" name="Email"  placeholder="Enter Email ID">
+        <input type="email" class="form-control" id="EmailID" [(ngModel)]="configurationData.AddUser.EmailID" name="EmailID"  placeholder="Enter Email ID">
       </div>
     </div>
     <div class="form-group">
@@ -35,4 +46,6 @@
    
      <div style="display: none">{{configurationData | json }}</div>
   </form>
+  </div>
+  </div>
 </div>

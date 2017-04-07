@@ -1,9 +1,11 @@
 [{
     "FirstName": "Vikas",
-    "Password": "v-vikv"
+    "Password": "v-vikv",
+    "ProjectName":"ECH"
   },
   {
     "FirstName": "vamsheedhar",
-    "Password": "v-vagop"
+    "Password": "v-vagop",
+    "ProjectName":"ECH"
   }
 ]

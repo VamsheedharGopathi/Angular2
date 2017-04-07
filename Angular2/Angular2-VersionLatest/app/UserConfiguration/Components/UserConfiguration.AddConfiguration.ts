@@ -60,23 +60,30 @@ export class AddConfiguartionComponent implements AfterViewInit {
     }
 
     private saveUserConfiguration() {
-        var data=
-        { 
-            User:this.configurationData.AddUser,
-            Queue:this.configurationData.AddQueue.filter(function(data){return data.Status}),
-            ConfigurationFiles:this.configurationData.AddConfiguration.filter(function(data){return data.Status}),
-            Events:this.configurationData.AddEvent.filter(function(data){return data.Status}),
-            Services:this.configurationData.AddServiceS.filter(function(data){return data.Status}),
-        };
+        var data =
+            {
+                User: this.configurationData.AddUser,
+                Queue: this.configurationData.AddQueue.filter(function (data) { return data.Status }),
+                ConfigurationFiles: this.configurationData.AddConfiguration.filter(function (data) { return data.Status }),
+                Events: this.configurationData.AddEvent.filter(function (data) { return data.Status }),
+                Services: this.configurationData.AddServiceS.filter(function (data) { return data.Status }),
+            };
         this.httpService.OpenRequest();
         this.httpService.httpMethodtype = 'post';
         this.httpService.Url = 'api/ECH/User/SaveUsers';
         this.httpService.param = '=' + JSON.stringify(data);
         this.httpService.CallHttpService().subscribe(
-            res => res.result,
-            error => { });
+            res => this.ParseResult(res.result),
+            error => this.ParseError(error));
     }
 
+    private ParseResult(result: any) {
+        this.httpService.CloseRequest();
+    }
+    private ParseError(error: any) {
+        alert('error occured')
+        this.httpService.CloseRequest();
+    }
     ngAfterViewInit() {
         this.tabArray.forEach(function (data) {
             //let factory = this._componentFactoryResolver.resolveComponentFactory(data.html);

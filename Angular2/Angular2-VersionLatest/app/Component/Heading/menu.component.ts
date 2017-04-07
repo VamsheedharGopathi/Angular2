@@ -19,7 +19,7 @@ export class MenuComponent {
 		this.Authenticate.logOut();
 	}
 	back() {
-		if (this.location.path() != '/home') {
+		if (this.location.path().toLowerCase() != '/home') {
 			this.location.back();
 		}
 	}

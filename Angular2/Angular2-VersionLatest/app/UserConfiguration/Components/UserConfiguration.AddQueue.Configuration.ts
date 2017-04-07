@@ -1,6 +1,6 @@
 'use strict'
 
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpCallService } from '../../Services/HttpCall.Service';
 import { Queue } from '../../Common.models/Queues.Model'
 import { ConfigurationData } from '../../Services/LocalStorage';
@@ -10,10 +10,10 @@ import { ConfigurationData } from '../../Services/LocalStorage';
 })
 
 export class UserQueueConfigurationComponent implements OnInit {
-   
+
     @Input() queueCollection = [Queue];
     error: any;
-    constructor(private httpService: HttpCallService,private configurationData:ConfigurationData) {
+    constructor(private httpService: HttpCallService, private configurationData: ConfigurationData) {
         this.configurationData.AddQueue = [];
     }
     ngOnInit() {
@@ -30,6 +30,7 @@ export class UserQueueConfigurationComponent implements OnInit {
     private ParseResult(result: [any]) {
         result.forEach(function (data: any) {
             let q = new Queue();
+            q.ID = data.ID;
             q.Name = data.Name;
             q.Status = false;
             this.configurationData.AddQueue.push(q);

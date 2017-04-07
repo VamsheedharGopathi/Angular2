@@ -7,7 +7,7 @@
                     <img class="img-rounded" src="../app/images/tns.png" alt="">
                 </div>
                 <div class="form-signin">
-                    <input type="text" class="form-control" placeholder="User Name" [(ngModel)]="user.FirstName" name="Name" required autofocus>
+                    <input type="text" class="form-control" placeholder="Email ID" [(ngModel)]="user.EmailID" name="Name" required autofocus>
                     <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.Password" name="Password" required>
                     <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="login(user)" > Login</button>
                     <label class="checkbox pull-left" (change)="rememberMe($event)"><input type="checkbox" value="remember-me" [(ngModel)]="chkRememberMe">Remember me</label>

@@ -1,6 +1,6 @@
 'use strict'
 
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpCallService } from '../../Services/HttpCall.Service';
 import { Service } from '../../Common.models/Services.Model'
 import { ConfigurationData } from '../../Services/LocalStorage';
@@ -10,14 +10,14 @@ import { ConfigurationData } from '../../Services/LocalStorage';
 })
 
 export class UserServicesConfigurationComponent implements OnInit {
-   
+
     @Input() serviceCollection = [Service];
     error: any;
-    constructor(private httpService: HttpCallService,private configurationData:ConfigurationData) {
+    constructor(private httpService: HttpCallService, private configurationData: ConfigurationData) {
         this.configurationData.AddServiceS = [];
     }
-     ngOnInit() {
-       this.httpService.OpenRequest();
+    ngOnInit() {
+        this.httpService.OpenRequest();
         this.httpService.httpMethodtype = 'get';
         this.httpService.Url = 'api/ECH/Services';
         this.httpService.param = 'GetProcesses';
@@ -29,6 +29,7 @@ export class UserServicesConfigurationComponent implements OnInit {
     private ParseResult(result: [any]) {
         result.forEach(function (data: any) {
             let service = new Service();
+            service.ID = data.ID;
             service.Name = data.Name;
             service.Status = false;
             this.configurationData.AddServiceS.push(service);

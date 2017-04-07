@@ -30,6 +30,7 @@ export class UserEventConfigurationComponent implements OnInit {
     private ParseResult(result: [any]) {
         result.forEach(function (data: any) {
             let event = new Event();
+            event.ID = data.ID;
             event.Name = data.Name;
             event.Status = false;
             this.configurationData.AddEvent.push(event);

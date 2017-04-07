@@ -16,7 +16,7 @@ export class EventsLogComponent implements OnInit {
         this.httpService.OpenRequest();
         this.httpService.httpMethodtype = "Get";
         this.httpService.Url = "api/ECH/Event";
-        this.httpService.param = 'GetEventLogNames';
+        this.httpService.param = 'GetUserEventLogNames';
         this.httpService.CallHttpService().subscribe(
             res => this.parse(res),
             error => this.parseError(error));
