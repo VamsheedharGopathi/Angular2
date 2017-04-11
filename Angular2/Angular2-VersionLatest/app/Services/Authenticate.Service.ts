@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpCallService } from './HttpCall.Service';
 import { User } from '../Common.models/User.Model';
 import { CanActivate, Router } from '@angular/router';
+import {SessionStorage  } from './LocalStorage';
 @Injectable()
 export class AuthenticateService implements CanActivate {
     error: any;
     User: User;
-    constructor(private httpServiceCall: HttpCallService, private router: Router) { }
+    constructor(private httpServiceCall: HttpCallService, private router: Router,private session:SessionStorage) { }
     canActivate() {
         if (this.isLoggedIn()) {
             return true;
@@ -50,8 +51,9 @@ export class AuthenticateService implements CanActivate {
     logOut() {
         this.User = null;
     }
-    goto(u: User) {
-       this.User=u;
+    goto(u: any) {
+        this.User = u.Data as User;
+        this.session["EncryptedData"]=btoa(JSON.stringify(this.User));
         this.httpServiceCall.CloseRequest();
         this.router.navigate(['/Home'])
     }

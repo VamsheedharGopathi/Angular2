@@ -10,13 +10,13 @@ import { FooterComponent } from "../Component/Footer/footer.component";
 import { HttpModule } from '@angular/http';
 import { HttpCallService } from '../Services/HttpCall.Service';
 import { AuthenticateService } from '../Services/Authenticate.Service';
-import { LocalStorageService } from '../Services/LocalStorage';
-//import { ListComponent } from '../Component/Commmon/list.Component'
+import { LocalStorageService,SessionStorage } from '../Services/LocalStorage';
+
 
 @NgModule({
   imports: [BrowserModule, CommonModule, AppRoutingModule, BodyModule, HttpModule],
   declarations: [PageComponent, MenuComponent, FooterComponent, Components, SpinnerComponent],
-  providers: [HttpCallService, AuthenticateService, LocalStorageService],
+  providers: [HttpCallService, AuthenticateService, LocalStorageService,SessionStorage],
   bootstrap: [PageComponent]//,
  // exports: [ListComponent]
 })

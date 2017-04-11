@@ -3,7 +3,7 @@
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Injectable, Input } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { LocalStorageService } from './LocalStorage'
+import { LocalStorageService, SessionStorage } from './LocalStorage'
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
@@ -11,11 +11,11 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class HttpCallService {
 
-  private localUrl ='http://localhost:64049/';//'http://servermonitorapis.azurewebsites.net/';//
-  constructor(private http: Http, private session: LocalStorageService) { }
+  private localUrl = 'http://localhost:64049/';//'http://servermonitorapis.azurewebsites.net/';//
+  constructor(private http: Http, private localStorage: LocalStorageService, private session: SessionStorage) { }
   httpMethodtype: string = "";
   result: any;
-  connectToLocal:boolean=false;
+  connectToLocal: boolean = false;
   Url: string = "";
   param: any;
   @Input() Request: boolean;
@@ -32,17 +32,17 @@ export class HttpCallService {
   }
 
   public RequestStatus(): boolean {
-    if (this.session.localStorage != {}) {
-      let data = this.session.localStorage;
+    if (this.localStorage.localStorage != {}) {
+      let data = this.localStorage.localStorage;
       return data["Request"];
     }
     return false;
   }
   public OpenRequest() {
-    this.session.localStorage = { Request: true };
+    this.localStorage.localStorage = { Request: true };
   }
   public CloseRequest() {
-    this.session.localStorage = { Request: false };
+    this.localStorage.localStorage = { Request: false };
   }
 
   private extractData(res: Response) {
@@ -52,23 +52,25 @@ export class HttpCallService {
 
   private getMethod() {
     let param = this.param != undefined ? '/' + this.param : '';
-    let URI=(this.connectToLocal==false?this.localUrl:'')+this.Url + param;
+    let URI = (this.connectToLocal == false ? this.localUrl : '') + this.Url + param;
     return this.http.get(URI, { headers: this.getHeaders() })
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   private postMethod() {
-    let URI=(this.connectToLocal==false?this.localUrl:'')+this.Url;
+    let URI = (this.connectToLocal == false ? this.localUrl : '') + this.Url;
     return this.http.post(URI, this.param, this.getOptions())
       .map(this.extractData)
       .catch(this.handleError);
   }
   private getHeaders() {
-    var headers=new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
-     headers.append('Authorization', 'Basic '+btoa("{'user':'vamsheedhar','password':'12345'}")); 
+    var headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+    if (this.session["EncryptedData"] != null) {
+      headers.append('Authorization', 'Basic ' + this.session["EncryptedData"]);//btoa("{'user':'vamsheedhar','password':'12345'}")
+    }
     return headers;
-   //return new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
+    //return new Headers({ 'Content-Type': 'application/json; charset=utf-8' });
   }
 
   private getOptions() {
