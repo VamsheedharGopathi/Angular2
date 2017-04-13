@@ -39,14 +39,14 @@ export class AddUserComponent {
         this.configurationData.AddUser = this.user;
 
         var userqueue = result.userQueue;
-        if (userqueue.lenght == 0) {
-            this.configurationData.AddQueue.filter(function (q) {
+        if (userqueue.length == 0) {
+            this.configurationData.AddQueue.forEach(function (q:any) {
                 q.Status = false;
             })
         }
         else {
-            userqueue.filter(function (uq) {
-                this.configurationData.AddQueue.filter(function (q) {
+            userqueue.forEach(function (uq):any {
+                this.configurationData.AddQueue.forEach(function (q:any) {
                     if (uq.queueID == q.ID) {
                         q.Status = uq.status;
                     }
@@ -55,14 +55,14 @@ export class AddUserComponent {
         }
 
         var userFileSystem = result.userFileSystem;
-        if (userFileSystem.lenght == 0) {
-            this.configurationData.AddConfiguration.filter(function (c) {
+        if (userFileSystem.length == 0) {
+            this.configurationData.AddConfiguration.forEach(function (c:any) {
                 c.Status = false;
             })
         }
         else {
-            userFileSystem.filter(function (ufs) {
-                this.configurationData.AddConfiguration.filter(function (c) {
+            userFileSystem.forEach(function (ufs:any) {
+                this.configurationData.AddConfiguration.forEach(function (c:any) {
                     if (ufs.fileID == c.ID) {
                         c.Status = ufs.status;
                     }
@@ -71,14 +71,14 @@ export class AddUserComponent {
         }
 
         var userEvents = result.userEvents;
-        if (userEvents.lenght == 0) {
-            this.configurationData.AddEvent.filter(function (e) {
+        if (userEvents.length == 0) {
+            this.configurationData.AddEvent.forEach(function (e:any) {
                 e.Status = false;
             })
         }
         else {
-            userEvents.filter(function (ue) {
-                this.configurationData.AddEvent.filter(function (e) {
+            userEvents.forEach(function (ue:any) {
+                this.configurationData.AddEvent.forEach(function (e:any) {
                     if (ue.eventID == e.ID) {
                         e.Status = ue.status;
                     }
@@ -87,14 +87,14 @@ export class AddUserComponent {
         }
 
         var userServices = result.userServices;
-        if (userEvents.lenght == 0) {
-            this.configurationData.AddServiceS.filter(function (s) {
+        if (userEvents.length == 0) {
+            this.configurationData.AddServiceS.forEach(function (s:any) {
                 s.Status = false;
             })
         }
         else {
-            userServices.filter(function (us) {
-                this.configurationData.AddServiceS.filter(function (s) {
+            userServices.forEach(function (us:any) {
+                this.configurationData.AddServiceS.forEach(function (s:any) {
                     if (us.serviceID == s.ID) {
                         s.Status = us.status;
                     }
