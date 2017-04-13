@@ -9,4 +9,5 @@ export class User {
     ExpiryDays:Number;
     ProjectName:string;
     Status: boolean;
+    RoleID:Number;
 }

@@ -11,7 +11,7 @@ import { HttpModule } from '@angular/http';
 import { HttpCallService } from '../Services/HttpCall.Service';
 import { AuthenticateService } from '../Services/Authenticate.Service';
 import { LocalStorageService,SessionStorage } from '../Services/LocalStorage';
-
+//import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   imports: [BrowserModule, CommonModule, AppRoutingModule, BodyModule, HttpModule],

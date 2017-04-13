@@ -25,16 +25,18 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
       '@angular/upgrade/static': 'npm:@angular/upgrade/bundles/upgrade-static.umd.js',
-
+      "ng2-charts": "node_modules/ng2-charts/ng2-charts.js",
       // other libraries
-      'rxjs':                      'npm:rxjs',
+      'rxjs': 'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
       app: {
         main: './main.js',
-        defaultExtension: 'js'
+        defaultExtension: 'js',
+        'ng2-charts': { format: 'register',
+                            defaultExtension: 'js' }
       },
       rxjs: {
         defaultExtension: 'js'
