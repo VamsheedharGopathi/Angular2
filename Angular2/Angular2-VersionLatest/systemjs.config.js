@@ -26,6 +26,8 @@
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
       '@angular/upgrade/static': 'npm:@angular/upgrade/bundles/upgrade-static.umd.js',
       "ng2-charts": "node_modules/ng2-charts/ng2-charts.js",
+      'chart.js': 'npm:chart.js/dist/Chart.bundle.js',
+
       // other libraries
       'rxjs': 'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
@@ -35,8 +37,10 @@
       app: {
         main: './main.js',
         defaultExtension: 'js',
-        'ng2-charts': { format: 'register',
-                            defaultExtension: 'js' }
+        'ng2-charts': {
+          format: 'register',
+          defaultExtension: 'js'
+        }
       },
       rxjs: {
         defaultExtension: 'js'

@@ -11,13 +11,16 @@ import { HttpModule } from '@angular/http';
 import { HttpCallService } from '../Services/HttpCall.Service';
 import { AuthenticateService } from '../Services/Authenticate.Service';
 import { LocalStorageService,SessionStorage } from '../Services/LocalStorage';
+import {SharedModule} from '../SharedResource/Shared.Module';
+import {ChartComponent} from '../SharedResource/Components/ChartComponent'
 //import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
-  imports: [BrowserModule, CommonModule, AppRoutingModule, BodyModule, HttpModule],
+  imports: [BrowserModule, CommonModule, AppRoutingModule,SharedModule, BodyModule, HttpModule],
   declarations: [PageComponent, MenuComponent, FooterComponent, Components, SpinnerComponent],
   providers: [HttpCallService, AuthenticateService, LocalStorageService,SessionStorage],
-  bootstrap: [PageComponent]//,
+  bootstrap: [PageComponent],
+  entryComponents:[ChartComponent]//,
  // exports: [ListComponent]
 })
 
