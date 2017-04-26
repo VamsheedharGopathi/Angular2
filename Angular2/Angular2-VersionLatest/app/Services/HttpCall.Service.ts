@@ -11,7 +11,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class HttpCallService {
 
-  private localUrl = 'http://servermonitorapis.azurewebsites.net/';//'http://localhost:64049/';//
+  private localUrl = 'http://localhost:64049/';//'http://servermonitorapis.azurewebsites.net/';//
   constructor(private http: Http, private localStorage: LocalStorageService, private session: SessionStorage) { }
   httpMethodtype: string = "";
   result: any;

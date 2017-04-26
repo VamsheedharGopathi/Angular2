@@ -14,9 +14,15 @@ export class ChartComponent implements OnInit {
   @Input() doughnutChartType: string = 'doughnut';
 
   constructor(private httpService: HttpCallService) {
+    setInterval(function(){
+      this.GetChartData();
+    },10000)
   }
 
   ngOnInit() {
+    this.GetChartData();
+  }
+  GetChartData() {
     this.httpService.OpenRequest();
     this.httpService.httpMethodtype = "Get";
     this.httpService.Url = "api/ECH/Event/GetChartDataForLogs";
@@ -24,11 +30,9 @@ export class ChartComponent implements OnInit {
     this.httpService.CallHttpService().subscribe(
       res => this.parseResult(res),
       error => () => { this.httpService.CloseRequest(); });
-
   }
   parseResult(res: any) {
-   
-    var chartData=[0,0,0]
+    var chartData = [0, 0, 0]
     var i = 0;
     this.doughnutChartLabels.forEach(function (data: any) {
       var p = data;
@@ -37,9 +41,9 @@ export class ChartComponent implements OnInit {
           chartData[i] = d.count;
         }
       })
-       i = i + 1;
+      i = i + 1;
     })
-    this.doughnutChartData=chartData;
+    this.doughnutChartData = chartData;
     this.httpService.CloseRequest();
   }
   // events

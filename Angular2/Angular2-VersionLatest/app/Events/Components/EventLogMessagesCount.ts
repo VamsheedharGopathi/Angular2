@@ -26,7 +26,7 @@ export class EventLogCountComponent implements OnInit, OnDestroy {
             .do(params => this.eventLogMessages = params)
             .subscribe(id => this.getEventLogCount());
         this.intervalfun = setInterval(() => {
-            this.getEventLogs();
+           // this.getEventLogs();
             this.ref.detectChanges();
         }, 10000);
     }
